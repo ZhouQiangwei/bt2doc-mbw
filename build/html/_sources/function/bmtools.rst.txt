@@ -103,7 +103,8 @@ Or just calculate DNA methylation level of same regions:
 
 .. code:: bash
 
-    $ bmtools regionstats -i sample1.methratio.mbw -r chr1:1-2900;chr2:1-200,+ -o gene.meth.txt
+    $ bmtools regionstats -i sample1.methratio.mbw -r chr1:1-2900;chr2:1-200,+ \
+      -o gene.meth.txt
 
 Please see 'bmtools regionstats' for more details.
 
@@ -127,7 +128,8 @@ Or just calculate DNA methylation level of same regions:
 
 .. code:: bash
 
-    $ bmtools bodystats -i sample1.methratio.mbw -r chr1:1-2900;chr2:1-200,+ -o gene.meth.txt
+    $ bmtools bodystats -i sample1.methratio.mbw -r chr1:1-2900;chr2:1-200,+ \
+      -o gene.meth.txt
 
 Please see 'bmtools bodystats' for more details.
 
