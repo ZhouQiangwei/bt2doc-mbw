@@ -1,0 +1,264 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>BatMeth2: DiffMeth &mdash; BatMeth2 1.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> BatMeth2
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">BatMeth2: DiffMeth</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BatMeth2</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>BatMeth2: DiffMeth</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/DiffMeth.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="batmeth2-diffmeth">
+<h1>BatMeth2: DiffMeth<a class="headerlink" href="#batmeth2-diffmeth" title="Permalink to this headline">¶</a></h1>
+<p>### BatMeth2 DMC or DMR/DMG</p>
+<p>![dmr-batmeth2.png](./media/diffmeth.png)</p>
+<p>##### BatMeth2: DMR</p>
+<p>Command Format :  DMR [options] -g genome.fa -o_dm &lt;DM_result&gt;  -1 [Sample1-methy ..] -2 [sample2-methy ..]</p>
+<p><strong>Usage:</strong></p>
+<p>​       -o_dm        output file</p>
+<p>​       -o_dmr       when use auto detect by dmc</p>
+<p>​       -g|–genome  Genome</p>
+<p>​       -1           sample1 methy files, sperate by space.</p>
+<p>​       -2           sample2 methy files, sperate by space.</p>
+<p>​       -FDR         adjust pvalue cutoff default : 0.05</p>
+<p>​       -methdiff    the cutoff of methylation differention. default: 0.25 [CpG]</p>
+<p>​       -element     caculate gene or TE etc function elements.</p>
+<p>​       -L          predefinded regions</p>
+<p>​       -h|–help</p>
+<ol class="arabic simple">
+<li><p>Pre-definded regions (Gene/TE/UTR/CDS…,but must run ‘combined.element sample1 sample2 sample1out sample2out’ before batDMR)</p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">`shell</span>
+<span class="pre">BatMeth2</span> <span class="pre">batDMR</span> <span class="pre">-g</span> <span class="pre">genome</span> <span class="pre">-L</span> <span class="pre">-o_dm</span> <span class="pre">dm.output.txt</span> <span class="pre">-1</span> <span class="pre">[sample1.methC.txt</span> <span class="pre">replicates</span> <span class="pre">..]</span> <span class="pre">-2</span> <span class="pre">[sample2.methC.txt</span> <span class="pre">replicates</span> <span class="pre">..]</span>
+<span class="pre">`</span></code></p>
+<ol class="arabic simple" start="2">
+<li><p>Auto define DMR region according the dmc</p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">BatMeth2</span> <span class="pre">batDMR</span> <span class="pre">-g</span> <span class="pre">genome</span> <span class="pre">-o_dm</span> <span class="pre">dm.output.txt</span> <span class="pre">-o_dmr</span> <span class="pre">dmr.output.txt</span> <span class="pre">-1</span> <span class="pre">[sample1.methC.txt</span> <span class="pre">replicates</span> <span class="pre">..]</span> <span class="pre">-2</span> <span class="pre">[sample2.methC.txt</span> <span class="pre">replicates</span> <span class="pre">..]</span>
+<span class="pre">`</span></code></p>
+<p>##### The output format</p>
+<dl class="simple">
+<dt><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a></dt><dd><ol class="arabic simple">
+<li><p>dmc &lt;br&gt; Chrom position starnd context pvalue adjust_pvalue combine_pvalue corrected_pvalue cover_sample1 meth_sample1 cover_sample2 cover_sample2 meth.diff</p></li>
+<li><p>dmr &lt;br&gt; Chrom start end dmr score meth.diff aver_corrected_pvalue</p></li>
+</ol>
+</dd>
+</dl>
+<p><a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></p>
+<p>##### Filter the result</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">awk</span> <span class="pre">'$6&lt;0.05</span> <span class="pre">&amp;&amp;</span> <span class="pre">sqrt($11*$11)&gt;0.6</span> <span class="pre">'</span> <span class="pre">H9vsIMR90.gene.dmr.txt</span> <span class="pre">&gt;</span> <span class="pre">H9vsIMR90.gene.dmr.filter.txt</span>
+<span class="pre">`</span></code></p>
+<p>##### DM annotation</p>
+<p>BatMeth2:  DMCplot</p>
+<p>Command Format :   DMCannotationPlot [options] -o &lt;Out_File&gt; -G GENOME -g &lt;GFF files..&gt; -d &lt;dmc file&gt; -c&lt;mC context&gt;</p>
+<p>Usage:</p>
+<p>​       -o|–out       Output file name.</p>
+<p>​       -G|–genome    Genome file</p>
+<p>​       -d|–dmcFile   dmc file. Format: Chrome Location strand</p>
+<p>​                 Format: chr pos strand</p>
+<p>​       -g|–gff       Gff files, 1 or more</p>
+<p>​       -c|–context   mC context, CG[default]/CHG/CHH/C.</p>
+<p>​       -h|–help</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">DMCannotationPlot</span> <span class="pre">[options]</span> <span class="pre">-o</span> <span class="pre">&lt;Out_File&gt;</span> <span class="pre">-G</span> <span class="pre">GENOME</span> <span class="pre">-g</span> <span class="pre">&lt;GFF</span> <span class="pre">files..</span> <span class="pre">eg:</span> <span class="pre">TE.gff</span> <span class="pre">gene.gff</span> <span class="pre">CDS.gff</span> <span class="pre">intron.gff</span> <span class="pre">lncRNA.gff</span> <span class="pre">...&gt;</span> <span class="pre">-d</span> <span class="pre">&lt;dmc</span> <span class="pre">file&gt;</span> <span class="pre">-c</span> <span class="pre">&lt;mC</span> <span class="pre">context</span> <span class="pre">default:</span> <span class="pre">CG&gt;</span>
+<span class="pre">`</span></code></p>
+<blockquote>
+<div><dl class="simple">
+<dt><a href="#id9"><span class="problematic" id="id10">**</span></a>Attention:<a href="#id11"><span class="problematic" id="id12">**</span></a>&lt;br&gt;</dt><dd><p><a href="#id13"><span class="problematic" id="id14">*</span></a>1.DMC file format : chr pos strand &lt;br&gt;
+2.GFF files are separated by spaces*&lt;br&gt;&lt;br&gt;</p>
+</dd>
+</dl>
+</div></blockquote>
+<hr class="docutils" />
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, momocoding
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

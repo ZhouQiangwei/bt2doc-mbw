@@ -1,0 +1,227 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>BatMeth2: PlotMeth &mdash; BatMeth2 1.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> BatMeth2
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">BatMeth2: PlotMeth</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BatMeth2</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>BatMeth2: PlotMeth</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/PlotMeth.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="batmeth2-plotmeth">
+<h1>BatMeth2: PlotMeth<a class="headerlink" href="#batmeth2-plotmeth" title="Permalink to this headline">¶</a></h1>
+<p><strong>Usage1:</strong></p>
+<ul class="simple">
+<li><p>methyPlot chromsome.bins.txt chrosome.methy.distri.pdf step&lt;default:0.025&gt; Infile1.from.batmeth2:methyGff out1.pdf starLabel endLabel Infile2 out2.pdf</p></li>
+</ul>
+<p>eg: methyPlot chromsome.bins.txt chrosome.methy.distri.pdf 0.025 gene.meth.Methylevel.1.txt methlevel.pdf TSS TTS gene.meth.AverMethylevel.1.txt elements.pdf</p>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>Usage2: **</p>
+<ul class="simple">
+<li><p>methyPlot chromsome.bins.txt chrosome.methy.distri.pdf 0.025 gene.meth.Methylevel.1.txt methlevel.pdf TSS TTS gene.meth.AverMethylevel.1.txt elements.pdf test.annoDensity.1.txt test.density.pdf sampleElmentName test.mCdensity.txt test.mCdensity.pdf test.mCcatero.txt test.mCcatero.pdf 0.8 0.1 0.1</p></li>
+</ul>
+<p><strong>Visulization case 2: two more samples</strong></p>
+<p><em>Contains:</em></p>
+<ul>
+<li><dl>
+<dt>The density of gene, transposon elements (TE) and the level of DNA methylation in the different samples of the whole genome. &lt;br&gt;</dt><dd><p>$ <cite>Rscript density_plot_with_methyl.r inputFile1 input2 genedensityFile TEdensity output.pdf label1 label2</cite></p>
+<p><a href="#id3"><span class="problematic" id="id4">*</span></a>example: Rscript ~/software/batmeth2/src/density_plot_with_methyl.r WT.methChrom.Rd.txt Mutant.methChrom.Rd.txt WT.noRd.Gff.gffDensity.1.txt WT.noRd.TE.gffDensity.1.txt density.Out.pdf WT mutant *</p>
+</dd>
+</dl>
+</li>
+<li><p>DNA methylation level distribution across genes/TEs in different samples.</p>
+<blockquote>
+<div><p>$ <cite>Rscript methylevel.elements.r step(default:0.025) Input.Sample1.from.Batmeth2:methyGff Input.Sample2 outfilePrefix xLab1 xLab2 Sample1Prefix Sample2Prefix</cite></p>
+<p><a href="#id5"><span class="problematic" id="id6">*</span></a>example: Rscript methylevel.elements.compare.r 0.025 sample1.gene.meth.Methylevel.1.txt sample2.gene.meth.Methylevel.1.txt methlevel TSS TTS mutant WT *</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, momocoding
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

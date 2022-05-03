@@ -1,0 +1,348 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>PlotMeth &mdash; BatMeth2 1.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="DiffMeth" href="DiffMeth.html" />
+    <link rel="prev" title="Meth2BigWig" href="bt2bigwig.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> BatMeth2
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example.html">Example Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bdindex.html">Build index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Pipeline.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Alignment.html">Alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Calmeth.html">Calculate DNA methylation level</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MethyGff.html">Calulate mC across predefined regions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bt2bigwig.html">Meth2BigWig</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PlotMeth</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#python-library">python library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bt2profile">bt2profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bt2heatmap">bt2heatmap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bt2chrprofile">bt2chrprofile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bt2basicplot">bt2basicplot</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DiffMeth.html">DiffMeth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Requirements.html">Requirements</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BatMeth2</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>PlotMeth</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/function/PlotMeth.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="plotmeth">
+<h1>PlotMeth<a class="headerlink" href="#plotmeth" title="Permalink to this headline">¶</a></h1>
+<p>BatMeth2: An Integrated Package for Bisulfite DNA Methylation Data Analysis with Indel-sensitive Mapping.</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#python-library" id="id7">python library</a></p></li>
+<li><p><a class="reference internal" href="#bt2profile" id="id8">bt2profile</a></p></li>
+<li><p><a class="reference internal" href="#bt2heatmap" id="id9">bt2heatmap</a></p></li>
+<li><p><a class="reference internal" href="#bt2chrprofile" id="id10">bt2chrprofile</a></p></li>
+<li><p><a class="reference internal" href="#bt2basicplot" id="id11">bt2basicplot</a></p></li>
+</ul>
+</div>
+<div class="section" id="python-library">
+<h2><a class="toc-backref" href="#id7">python library</a><a class="headerlink" href="#python-library" title="Permalink to this headline">¶</a></h2>
+<p>install library required</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install numpy
+pip install pandas
+pip install matplotlib
+pip install seaborn
+</pre></div>
+</div>
+</div>
+<div class="section" id="bt2profile">
+<h2><a class="toc-backref" href="#id8">bt2profile</a><a class="headerlink" href="#bt2profile" title="Permalink to this headline">¶</a></h2>
+<p>Plot DNA methlation profile across gene/ TE/ predefined bed region, such as peak or dmr region.
+The input DNA methylation level matrix is produced by <a class="reference internal" href="MethyGff.html"><span class="doc">Calulate mC across predefined regions</span></a>.</p>
+<p>The <a href="#id1"><span class="problematic" id="id2">*</span></a>.TSSprofile.txt <a href="#id3"><span class="problematic" id="id4">*</span></a>.centerprofile.txt and <a href="#id5"><span class="problematic" id="id6">*</span></a>.AverMethylevel.txt are calulated by <a class="reference internal" href="MethyGff.html"><span class="doc">Calulate mC across predefined regions</span></a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ BatMeth2 methyGff -o H3K4me3.bdgene H3K4me3.unbdgene <span class="se">\</span>
+    -G genome.fa -m methratio.txt <span class="se">\</span>
+    -b H3K4me3.bdgene.bed H3K4me3.unbdgene.bed -B
+
+$ bt2profile.py -f H3K4me3.bdgene.TSSprofile.txt <span class="se">\</span>
+    H3K4me3.unbdgene.TSSprofile.txt <span class="se">\</span>
+    -l H3K4me3.bdgene H3K4me3.unbdgene <span class="se">\</span>
+    --outFileName H3K4me3.output.meth.pdf <span class="se">\</span>
+    -s <span class="m">1</span> <span class="m">1</span> -xl up2k TSS down2k --context C
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/profile-tss.png"><img alt="profile" class="align-center" src="../_images/profile-tss.png" style="width: 400px; height: 300px;" /></a>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ BatMeth2 methyGff -o active random <span class="se">\</span>
+    -G genome.fa -m methratio.txt <span class="se">\</span>
+    -b active.bed random.bed -B
+
+$ bt2profile.py -f active.centerprofile.txt <span class="se">\</span>
+    random.centerprofile.txt <span class="se">\</span>
+    -l active random <span class="se">\</span>
+    --outFileName active_random.output.meth.pdf <span class="se">\</span>
+    -s <span class="m">1</span> <span class="m">1</span> -xl up2k center down2k
+</pre></div>
+</div>
+<img alt="../_images/profile-center.png" src="../_images/profile-center.png" />
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ bt2profile.py -f H3K27me3.bdgene.AverMethylevel.txt <span class="se">\</span>
+    H3K27me3.unbdgene.AverMethylevel.txt <span class="se">\</span>
+    -l H3K27me3.bdgene H3K27me3.unbdgene <span class="se">\</span>
+    --outFileName H3K27me3.output.meth.pdf <span class="se">\</span>
+    -s <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> -xl up2k TSS TES down2k
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/profile-body.png"><img alt="profile" class="align-center" src="../_images/profile-body.png" style="width: 400px; height: 300px;" /></a>
+</div>
+<div class="section" id="bt2heatmap">
+<h2><a class="toc-backref" href="#id9">bt2heatmap</a><a class="headerlink" href="#bt2heatmap" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python bt2heatmap.py -m H3K4me3.bdgene.GENE.cg.txt -l <span class="nb">bg</span> <span class="se">\</span>
+-o test0.pdf -z k43 -sl TSS -el TTS
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/plot-heatmap-0.png"><img alt="heatmap0" class="align-center" src="../_images/plot-heatmap-0.png" style="width: 200px; height: 380px;" /></a>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python bt2heatmap.py -m H3K4me3.bdgene.TSS.cg.txt H3K4me3.bdgene.TTS.cg.txt <span class="se">\</span>
+    -l tss tts -o test.pdf --zMax <span class="m">0</span>.1 --colorMap vlag --centerlabel center -z bd
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/plot-heatmap-1.png"><img alt="heatmap0" class="align-center" src="../_images/plot-heatmap-1.png" style="width: 400px; height: 460px;" /></a>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python bt2heatmap.py -m H3K4me3.bdgene.TSS.cg.txt H3K4me3.bdgene.TTS.cg.txt <span class="se">\</span>
+    H3K4me3.unbdgene.TSS.cg.txt H3K4me3.unbdgene.TTS.cg.txt <span class="se">\</span>
+    -l <span class="nb">test</span> end -o test2.pdf --zMax <span class="m">0</span>.05 --centerlabel center <span class="se">\</span>
+    --plotmatrix 2x2 --colorList white,red -z bd unbd
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/plot-heatmap-2.png"><img alt="heatmap0" class="align-center" src="../_images/plot-heatmap-2.png" style="width: 400px; height: 500px;" /></a>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python bt2heatmap.py -f H3K4me3.bdgene.body.cg.txt H3K4me3.bdgene.body.cg.txt <span class="se">\</span>
+    H3K4me3.unbdgene.body.cg.txt H3K4me3.unbdgene.body.cg.txt <span class="se">\</span>
+    -l <span class="nb">test</span> end -o test3.pdf --zMax <span class="m">0</span>.5 --centerlabel center <span class="se">\</span>
+    --plotmatrix 2x2 -z bd unbd
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/plot-heatmap-3.png"><img alt="heatmap0" class="align-center" src="../_images/plot-heatmap-3.png" style="width: 400px; height: 500px;" /></a>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python bt2heatmap.py -m H3K4me3.bdgene.TSS.cg.txt H3K4me3.bdgene.TTS.cg.txt <span class="se">\</span>
+    H3K4me3.bdgene.TSS.chg.txt H3K4me3.bdgene.TTS.chg.txt <span class="se">\</span>
+    H3K4me3.bdgene.TSS.chh.txt H3K4me3.bdgene.TTS.chh.txt <span class="se">\</span>
+    -l H3K4me3.bdgene-tss H3K4me3.bdgene-tts <span class="se">\</span>
+    -o H3K4me3.bdgene.TSS_TTS.heatmap.pdf --plotmatrix 3x2 <span class="se">\</span>
+    --centerlabel center -z cg chg chh --zMax <span class="m">0</span>.3 <span class="m">1</span> <span class="m">0</span>.01
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/plot-heatmap-4.png"><img alt="heatmap0" class="align-center" src="../_images/plot-heatmap-4.png" style="width: 400px; height: 500px;" /></a>
+</div>
+<div class="section" id="bt2chrprofile">
+<h2><a class="toc-backref" href="#id10">bt2chrprofile</a><a class="headerlink" href="#bt2chrprofile" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="bt2basicplot">
+<h2><a class="toc-backref" href="#id11">bt2basicplot</a><a class="headerlink" href="#bt2basicplot" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3 bt2basicplot.py -c coverfile.txt coverfile2.txt -o tt.cc.pdf
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/plot-basic-coverage.png"><img alt="coverage" class="align-center" src="../_images/plot-basic-coverage.png" style="width: 500px; height: 300px;" /></a>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3 bt2basicplot.py -f prefix1.gene.cg.txt prefix2.gene.cg.txt  -c coverfile.txt coverfile2.txt -o tt.pdf
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/plot-basic-boxplot.png"><img alt="boxplot" class="align-center" src="../_images/plot-basic-boxplot.png" style="width: 500px; height: 300px;" /></a>
+<a class="reference internal image-reference" href="../_images/plot-basic-corplot1.png"><img alt="corplot1" class="align-center" src="../_images/plot-basic-corplot1.png" style="width: 500px; height: 300px;" /></a>
+<a class="reference internal image-reference" href="../_images/plot-basic-corplot2.png"><img alt="corplot2" class="align-center" src="../_images/plot-basic-corplot2.png" style="width: 300px; height: 300px;" /></a>
+<a class="reference internal image-reference" href="../_images/plot-basic-coverage.png"><img alt="coverage" class="align-center" src="../_images/plot-basic-coverage.png" style="width: 500px; height: 300px;" /></a>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>DNA methylation level distribution on chromosome (bt2chrplot) and DNA methylation level distribution (bt2visul) are currently being tested, and we will update them as soon as possible.</p>
+<p>Note: &#64;HZAU.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For feature requests or bug reports please open an issue <a class="reference external" href="http://github.com/ZhouQiangwei/BatMeth2">on github</a>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="DiffMeth.html" class="btn btn-neutral float-right" title="DiffMeth" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="bt2bigwig.html" class="btn btn-neutral float-left" title="Meth2BigWig" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, momocoding.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

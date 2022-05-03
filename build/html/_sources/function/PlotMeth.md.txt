@@ -1,0 +1,29 @@
+BatMeth2: PlotMeth
+--------------------------------------------------
+
+**Usage1:**
+
+* methyPlot chromsome.bins.txt chrosome.methy.distri.pdf step<default:0.025> Infile1.from.batmeth2:methyGff out1.pdf starLabel endLabel Infile2 out2.pdf
+
+eg: methyPlot chromsome.bins.txt chrosome.methy.distri.pdf 0.025 gene.meth.Methylevel.1.txt methlevel.pdf TSS TTS gene.meth.AverMethylevel.1.txt elements.pdf
+
+**Usage2: **
+
+* methyPlot chromsome.bins.txt chrosome.methy.distri.pdf 0.025 gene.meth.Methylevel.1.txt methlevel.pdf TSS TTS gene.meth.AverMethylevel.1.txt elements.pdf test.annoDensity.1.txt test.density.pdf sampleElmentName test.mCdensity.txt test.mCdensity.pdf test.mCcatero.txt test.mCcatero.pdf 0.8 0.1 0.1
+
+
+
+**Visulization case 2: two more samples**
+
+*Contains:*
+
+* The density of gene, transposon elements (TE) and the level of DNA methylation in the different samples of the whole genome. <br>
+    $ `Rscript density_plot_with_methyl.r inputFile1 input2 genedensityFile TEdensity output.pdf label1 label2` 
+
+    *example: Rscript ~/software/batmeth2/src/density_plot_with_methyl.r WT.methChrom.Rd.txt Mutant.methChrom.Rd.txt WT.noRd.Gff.gffDensity.1.txt WT.noRd.TE.gffDensity.1.txt density.Out.pdf WT mutant *
+
+* DNA methylation level distribution across genes/TEs in different samples. 
+
+    $ `Rscript methylevel.elements.r step(default:0.025) Input.Sample1.from.Batmeth2:methyGff Input.Sample2 outfilePrefix xLab1 xLab2 Sample1Prefix Sample2Prefix` 
+
+    *example: Rscript methylevel.elements.compare.r 0.025 sample1.gene.meth.Methylevel.1.txt sample2.gene.meth.Methylevel.1.txt methlevel TSS TTS mutant WT * 

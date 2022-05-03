@@ -1,0 +1,96 @@
+BatMeth2: DiffMeth
+--------------------------------------------------
+
+### BatMeth2 DMC or DMR/DMG
+
+![dmr-batmeth2.png](./media/diffmeth.png)
+
+##### BatMeth2: DMR 
+
+Command Format :  DMR [options] -g genome.fa -o_dm <DM_result>  -1 [Sample1-methy ..] -2 [sample2-methy ..] 
+
+**Usage:**
+
+​	-o_dm        output file
+
+​	-o_dmr       when use auto detect by dmc
+
+​	-g|--genome  Genome
+
+​	-1           sample1 methy files, sperate by space.
+
+​	-2           sample2 methy files, sperate by space.
+
+​	-FDR         adjust pvalue cutoff default : 0.05
+
+​	-methdiff    the cutoff of methylation differention. default: 0.25 [CpG]
+
+​	-element     caculate gene or TE etc function elements.
+
+​	-L          predefinded regions 
+
+​	-h|--help
+
+
+
+1. Pre-definded regions (Gene/TE/UTR/CDS...,but must run 'combined.element sample1 sample2 sample1out sample2out' before batDMR) 
+
+```shell
+BatMeth2 batDMR -g genome -L -o_dm dm.output.txt -1 [sample1.methC.txt replicates ..] -2 [sample2.methC.txt replicates ..]
+```
+
+2. Auto define DMR region according the dmc 
+
+```bash
+BatMeth2 batDMR -g genome -o_dm dm.output.txt -o_dmr dmr.output.txt -1 [sample1.methC.txt replicates ..] -2 [sample2.methC.txt replicates ..]
+```
+
+
+##### The output format
+
+```
+    1. dmc <br> Chrom position starnd context pvalue adjust_pvalue combine_pvalue corrected_pvalue cover_sample1 meth_sample1 cover_sample2 cover_sample2 meth.diff 
+    
+    2. dmr <br> Chrom start end dmr score meth.diff aver_corrected_pvalue 
+```
+
+##### Filter the result
+
+```bash
+awk '$6<0.05 && sqrt($11*$11)>0.6 ' H9vsIMR90.gene.dmr.txt > H9vsIMR90.gene.dmr.filter.txt
+```
+
+##### DM annotation
+
+BatMeth2:  DMCplot
+
+Command Format :   DMCannotationPlot [options] -o <Out_File> -G GENOME -g <GFF files..> -d <dmc file> -c<mC context>
+
+Usage:
+
+​	-o|--out       Output file name.
+
+​	-G|--genome    Genome file
+
+​	-d|--dmcFile   dmc file. Format: Chrome Location strand
+
+​                 Format: chr pos strand 
+
+​	-g|--gff       Gff files, 1 or more
+
+​	-c|--context   mC context, CG[default]/CHG/CHH/C. 
+
+​	-h|--help 
+
+
+
+```bash
+DMCannotationPlot [options] -o <Out_File> -G GENOME -g <GFF files.. eg: TE.gff gene.gff CDS.gff intron.gff lncRNA.gff ...> -d <dmc file> -c <mC context default: CG>
+```
+
+   **Attention:**<br>
+    *1.DMC file format : chr pos strand <br>
+    2.GFF files are separated by spaces*<br><br>
+
+------
+

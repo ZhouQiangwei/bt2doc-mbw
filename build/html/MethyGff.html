@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>BatMeth2: MethyGff &mdash; BatMeth2 1.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> BatMeth2
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">BatMeth2: MethyGff</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BatMeth2</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>BatMeth2: MethyGff</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/MethyGff.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="batmeth2-methygff">
+<h1>BatMeth2: MethyGff<a class="headerlink" href="#batmeth2-methygff" title="Permalink to this headline">¶</a></h1>
+<p>Command Format :   methyGff [options] -o &lt;OUT_PREFIX&gt; -G GENOME -gff &lt;GFF file&gt;/-gtf &lt;GTF file&gt;/-b &lt;bed file&gt; -m &lt;from Split methratio outfile&gt; [-B][-P]</p>
+<p><strong>Usage:</strong></p>
+<p>​       -o|–out         Output file prefix</p>
+<p>​       -G|–genome      Genome</p>
+<p>​       -m|–methratio   Methratio output file.</p>
+<p>​       -c|–coverage    &gt;= &lt;INT&gt; coverage. default:5</p>
+<p>​       -C               &lt;= &lt;INT&gt; coverage. default 600.</p>
+<p>​       -nC              &gt;= &lt;INT&gt; Cs per bins or genes. default:5</p>
+<p>​       -gtf|-gff        Gtf/gff file</p>
+<p>​       -b|–BED         Bed file, chrom start end (strand)</p>
+<p>​       -d|–distance    DNA methylation level distributions in body and &lt;INT&gt;-bp flanking sequences. The distance of upstream and downstream. default:2000</p>
+<p>​       -B|–body        For different analysis input format, gene/TEs body methylation level. [Different Methylation Gene(DMG/DMT…)]</p>
+<p>​       -P|–promoter    For different analysis input format.[Different Methylation Promoter(DMP)]</p>
+<p>​       –TSS            Caculate heatmap for TSS. [Outfile: outPrefix.TSS.cg.n.txt]</p>
+<p>​       –TTS            Caculate heatmap for TTS. [Outfile: outPrefix.TTS.cg.n.txt]</p>
+<p>​       –GENE           Caculate heatmap for GENE and flank 2k. [Outfile: outPrefix.GENE.cg.n.txt]</p>
+<p>​       -s|–step        Gene body and their flanking sequences using an overlapping sliding window of 5% of the sequence length at a step of 2.5% of the sequence length. So default step: 0.025 (2.5%)</p>
+<p>​       -S|–chromStep   Caculate the density of genes/TEs in chromsome using an overlapping sliding window of 100000bp at a step of 50000bp, must equal “-s” in Split.. default step: 50000(bp)</p>
+<p>​       -h|–help</p>
+<p>#### 4. BatMeth2 methyPlot</p>
+<p><strong>Usage1:</strong></p>
+<ul class="simple">
+<li><p>methyPlot chromsome.bins.txt chrosome.methy.distri.pdf step&lt;default:0.025&gt; Infile1.from.batmeth2:methyGff out1.pdf starLabel endLabel Infile2 out2.pdf</p></li>
+</ul>
+<p>eg: methyPlot chromsome.bins.txt chrosome.methy.distri.pdf 0.025 gene.meth.Methylevel.1.txt methlevel.pdf TSS TTS gene.meth.AverMethylevel.1.txt elements.pdf</p>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>Usage2: **</p>
+<ul class="simple">
+<li><p>methyPlot chromsome.bins.txt chrosome.methy.distri.pdf 0.025 gene.meth.Methylevel.1.txt methlevel.pdf TSS TTS gene.meth.AverMethylevel.1.txt elements.pdf test.annoDensity.1.txt test.density.pdf sampleElmentName test.mCdensity.txt test.mCdensity.pdf test.mCcatero.txt test.mCcatero.pdf 0.8 0.1 0.1</p></li>
+</ul>
+<p><strong>Visulization case 2: two more samples</strong></p>
+<p><em>Contains:</em></p>
+<ul>
+<li><dl>
+<dt>The density of gene, transposon elements (TE) and the level of DNA methylation in the different samples of the whole genome. &lt;br&gt;</dt><dd><p>$ <cite>Rscript density_plot_with_methyl.r inputFile1 input2 genedensityFile TEdensity output.pdf label1 label2</cite></p>
+<p><a href="#id3"><span class="problematic" id="id4">*</span></a>example: Rscript ~/software/batmeth2/src/density_plot_with_methyl.r WT.methChrom.Rd.txt Mutant.methChrom.Rd.txt WT.noRd.Gff.gffDensity.1.txt WT.noRd.TE.gffDensity.1.txt density.Out.pdf WT mutant *</p>
+</dd>
+</dl>
+</li>
+<li><p>DNA methylation level distribution across genes/TEs in different samples.</p>
+<blockquote>
+<div><p>$ <cite>Rscript methylevel.elements.r step(default:0.025) Input.Sample1.from.Batmeth2:methyGff Input.Sample2 outfilePrefix xLab1 xLab2 Sample1Prefix Sample2Prefix</cite></p>
+<p><a href="#id5"><span class="problematic" id="id6">*</span></a>example: Rscript methylevel.elements.compare.r 0.025 sample1.gene.meth.Methylevel.1.txt sample2.gene.meth.Methylevel.1.txt methlevel TSS TTS mutant WT *</p>
+</div></blockquote>
+</li>
+</ul>
+<p>#### 5. BatMeth2 DMC or DMR/DMG</p>
+<p>![dmr-batmeth2.png](<a class="reference external" href="https://upload-images.jianshu.io/upload_images/19460405-a87a7571c57ef1f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">https://upload-images.jianshu.io/upload_images/19460405-a87a7571c57ef1f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240</a>)</p>
+<p>##### BatMeth2: DMR</p>
+<p>Command Format :  DMR [options] -g genome.fa -o_dm &lt;DM_result&gt;  -1 [Sample1-methy ..] -2 [sample2-methy ..]</p>
+<p><strong>Usage:</strong></p>
+<p>​       -o_dm        output file</p>
+<p>​       -o_dmr       when use auto detect by dmc</p>
+<p>​       -g|–genome  Genome</p>
+<p>​       -1           sample1 methy files, sperate by space.</p>
+<p>​       -2           sample2 methy files, sperate by space.</p>
+<p>​       -FDR         adjust pvalue cutoff default : 0.05</p>
+<p>​       -methdiff    the cutoff of methylation differention. default: 0.25 [CpG]</p>
+<p>​       -element     caculate gene or TE etc function elements.</p>
+<p>​       -L          predefinded regions</p>
+<p>​       -h|–help</p>
+<ol class="arabic simple">
+<li><p>Pre-definded regions (Gene/TE/UTR/CDS…,but must run ‘combined.element sample1 sample2 sample1out sample2out’ before batDMR)</p></li>
+</ol>
+<p>$ <cite>BatMeth2 batDMR -g genome -L -o_dm dm.output.txt -1 [sample1.methC.txt replicates ..] -2 [sample2.methC.txt replicates ..]</cite></p>
+<ol class="arabic simple" start="2">
+<li><p>Auto define DMR region according the dmc</p></li>
+</ol>
+<p>$ <cite>BatMeth2 batDMR -g genome -o_dm dm.output.txt -o_dmr dmr.output.txt -1 [sample1.methC.txt replicates ..] -2 [sample2.methC.txt replicates ..]</cite></p>
+<p>##### The output format</p>
+<dl class="simple">
+<dt><a href="#id7"><span class="problematic" id="id8">``</span></a><a href="#id9"><span class="problematic" id="id10">`</span></a></dt><dd><ol class="arabic simple">
+<li><p>dmc &lt;br&gt; Chrom position starnd context pvalue adjust_pvalue combine_pvalue corrected_pvalue cover_sample1 meth_sample1 cover_sample2 cover_sample2 meth.diff</p></li>
+<li><p>dmr &lt;br&gt; Chrom start end dmr score meth.diff aver_corrected_pvalue</p></li>
+</ol>
+</dd>
+</dl>
+<p><a href="#id11"><span class="problematic" id="id12">``</span></a><a href="#id13"><span class="problematic" id="id14">`</span></a></p>
+<p>##### Filter the result</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">awk</span> <span class="pre">'$6&lt;0.05</span> <span class="pre">&amp;&amp;</span> <span class="pre">sqrt($11*$11)&gt;0.6</span> <span class="pre">'</span> <span class="pre">H9vsIMR90.gene.dmr.txt</span> <span class="pre">&gt;</span> <span class="pre">H9vsIMR90.gene.dmr.filter.txt</span>
+<span class="pre">`</span></code></p>
+<p>##### DM annotation</p>
+<p>BatMeth2:  DMCplot</p>
+<p>Command Format :   DMCannotationPlot [options] -o &lt;Out_File&gt; -G GENOME -g &lt;GFF files..&gt; -d &lt;dmc file&gt; -c&lt;mC context&gt;</p>
+<p>Usage:</p>
+<p>​       -o|–out       Output file name.</p>
+<p>​       -G|–genome    Genome file</p>
+<p>​       -d|–dmcFile   dmc file. Format: Chrome Location strand</p>
+<p>​                 Format: chr pos strand</p>
+<p>​       -g|–gff       Gff files, 1 or more</p>
+<p>​       -c|–context   mC context, CG[default]/CHG/CHH/C.</p>
+<p>​       -h|–help</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">DMCannotationPlot</span> <span class="pre">[options]</span> <span class="pre">-o</span> <span class="pre">&lt;Out_File&gt;</span> <span class="pre">-G</span> <span class="pre">GENOME</span> <span class="pre">-g</span> <span class="pre">&lt;GFF</span> <span class="pre">files..</span> <span class="pre">eg:</span> <span class="pre">TE.gff</span> <span class="pre">gene.gff</span> <span class="pre">CDS.gff</span> <span class="pre">intron.gff</span> <span class="pre">lncRNA.gff</span> <span class="pre">...&gt;</span> <span class="pre">-d</span> <span class="pre">&lt;dmc</span> <span class="pre">file&gt;</span> <span class="pre">-c</span> <span class="pre">&lt;mC</span> <span class="pre">context</span> <span class="pre">default:</span> <span class="pre">CG&gt;</span>
+<span class="pre">`</span></code></p>
+<blockquote>
+<div><dl class="simple">
+<dt><a href="#id15"><span class="problematic" id="id16">**</span></a>Attention:<a href="#id17"><span class="problematic" id="id18">**</span></a>&lt;br&gt;</dt><dd><p><a href="#id19"><span class="problematic" id="id20">*</span></a>1.DMC file format : chr pos strand &lt;br&gt;
+2.GFF files are separated by spaces*&lt;br&gt;&lt;br&gt;</p>
+</dd>
+</dl>
+</div></blockquote>
+<hr class="docutils" />
+<p>Make sure all index files reside in the same directory.</p>
+<p>Built with <cite>BatMeth2 build_index Genome.fa</cite></p>
+<p>=-=-=-=-=-=-=-=-=-=</p>
+<p>GNU automake v1.11.1, GNU autoconf v2.63, gcc v4.4.7.</p>
+<p>Tested on Red Hat 4.4.7-11 Linux</p>
+<p>Thank you for your patience.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, momocoding
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

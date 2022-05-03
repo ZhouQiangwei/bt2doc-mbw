@@ -1,0 +1,220 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>BatMeth2: calmeth &mdash; BatMeth2 1.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> BatMeth2
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">BatMeth2: calmeth</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BatMeth2</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>BatMeth2: calmeth</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Calmeth.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="batmeth2-calmeth">
+<h1>BatMeth2: calmeth<a class="headerlink" href="#batmeth2-calmeth" title="Permalink to this headline">¶</a></h1>
+<p>Command Format :  calmeth [options] -g GENOME  -i/-b &lt;Samfile/Bamfile&gt; -m &lt;methratio outfile prefix&gt; -p 6</p>
+<p><strong>Usage:</strong></p>
+<p>-g|–genome           Genome</p>
+<p>​       -i|–input            Sam format file</p>
+<p>​       -b|–binput           Bam format file</p>
+<p>​       -p|–threads          the number of threads.</p>
+<p>​       -n|–Nmismatch        Number of mismatches</p>
+<p>​       -m|–methratio        [MethFileNamePrefix]  Predix of methratio output file</p>
+<p>​       -Q [int]              caculate the methratio while read QulityScore &gt;= Q. default:10</p>
+<p>​       -c|–coverage         &gt;= &lt;INT&gt; coverage. default:5</p>
+<p>​       -nC                      &gt;= &lt;INT&gt; nCs per region. default:5</p>
+<p>​       -R <a href="#id1"><span class="problematic" id="id2">|</span></a>–Regions         Bins for DMR caculate , default 1kb .</p>
+<p>​       –binsfile            DNA methylation level distributions in chrosome, default output file: {methratioPrefix}.methBins.txt</p>
+<p>​       -s|–step             Chrosome using an overlapping sliding window of 100000bp at a step of 50000bp. default step: 50000(bp)</p>
+<p>​       -r|–remove_dup       REMOVE_DUP, default:false</p>
+<p>​       -f|–sam [outfile]    f for sam format outfile contain methState. default: sam format.</p>
+<p>​       –sam-seq-beforeBS    Converting BS read to the genome sequences.</p>
+<p>​       -h|–help</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, momocoding
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

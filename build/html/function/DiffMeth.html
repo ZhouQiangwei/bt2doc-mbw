@@ -1,0 +1,494 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>DiffMeth &#8212; BatMeth2 1.1 documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Requirements" href="Requirements.html" />
+    <link rel="prev" title="PlotMeth" href="PlotMeth.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">BatMeth2 1.1 documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="install.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="example.html">
+   Example Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bdindex.html">
+   Build index
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Pipeline.html">
+   Pipeline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Alignment.html">
+   Alignment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Calmeth.html">
+   Calculate DNA methylation level
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bmtools.html">
+   bmtools
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PlotMeth.html">
+   PlotMeth
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   DiffMeth
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Requirements.html">
+   Requirements
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/function/DiffMeth.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#batmeth2-dmc-or-dmr-dmg">
+   BatMeth2 DMC or DMR/DMG
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#usage">
+   Usage
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#output-file">
+   Output file
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>DiffMeth</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#batmeth2-dmc-or-dmr-dmg">
+   BatMeth2 DMC or DMR/DMG
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#usage">
+   Usage
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#output-file">
+   Output file
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="diffmeth">
+<h1>DiffMeth<a class="headerlink" href="#diffmeth" title="Permalink to this headline">#</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#batmeth2-dmc-or-dmr-dmg" id="id1">BatMeth2 DMC or DMR/DMG</a></p></li>
+<li><p><a class="reference internal" href="#usage" id="id2">Usage</a></p></li>
+<li><p><a class="reference internal" href="#output-file" id="id3">Output file</a></p></li>
+</ul>
+</div>
+<section id="batmeth2-dmc-or-dmr-dmg">
+<h2><a class="toc-backref" href="#id1">BatMeth2 DMC or DMR/DMG</a><a class="headerlink" href="#batmeth2-dmc-or-dmr-dmg" title="Permalink to this headline">#</a></h2>
+<a class="reference internal image-reference" href="../_images/diffmeth.png"><img alt="alternate text" class="align-center" src="../_images/diffmeth.png" style="width: 640.0px; height: 464.0px;" /></a>
+<p>You can get dmc and dmr result with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ bmDMR -p mutant.output.dm <span class="se">\</span>
+-1 mutant.methratio.mbw -2 WT.methratio.mbw <span class="se">\</span>
+-methdiff <span class="m">0</span>.2 -minstep <span class="m">100</span> -mindmc <span class="m">5</span> -pval <span class="m">0</span>.01
+</pre></div>
+</div>
+<p>obtained hyper、hypo dmc/dmr from dmc/dmr results</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ awk -v <span class="nv">OFS</span><span class="o">=</span><span class="s2">&quot;\t&quot;</span> <span class="s1">&#39;gsub(/\,/,&quot;\t&quot;,$NF)&#39;</span> mutant.output.dmr <span class="p">|</span> <span class="se">\</span>
+awk <span class="s1">&#39;$(NF-2)&gt;4 &amp;&amp; $NF&lt;=1&#39;</span>  &gt; mutant.output.hyper.dmr
+$ awk -v <span class="nv">OFS</span><span class="o">=</span><span class="s2">&quot;\t&quot;</span> <span class="s1">&#39;gsub(/\,/,&quot;\t&quot;,$NF)&#39;</span> mutant.output.dmr <span class="p">|</span> <span class="se">\</span>
+awk <span class="s1">&#39;!($(NF-2)&gt;4 &amp;&amp; $NF&lt;=1)&#39;</span>  &gt; mutant.output.hypo.dmr
+$ awk <span class="s1">&#39;$NF&gt;0&#39;</span> mutant.output.dmc <span class="p">|</span> awk <span class="s1">&#39;{print $1&quot;\t&quot;$2&quot;\t&quot;$2}&#39;</span> <span class="se">\</span>
+&gt; mutant.output.hyper.dmc
+$ awk <span class="s1">&#39;$NF&lt;0&#39;</span> mutant.output.dmc <span class="p">|</span> awk <span class="s1">&#39;{print $1&quot;\t&quot;$2&quot;\t&quot;$2}&#39;</span> <span class="se">\</span>
+&gt; mutant.output.hypo.dmc
+</pre></div>
+</div>
+</section>
+<section id="usage">
+<h2><a class="toc-backref" href="#id2">Usage</a><a class="headerlink" href="#usage" title="Permalink to this headline">#</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 78%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head" colspan="2"><p><strong>[ Main paramaters ]</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>-p</p></td>
+<td><p>output file prefix</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>sample1 methy mbw files, sperate by space.</p></td>
+</tr>
+<tr class="row-even"><td><p>-2</p></td>
+<td><p>sample2 methy mbw files, sperate by space.</p></td>
+</tr>
+<tr class="row-odd"><td><p>–mindmc</p></td>
+<td><p>min dmc sites in dmr region. [default : 4]</p></td>
+</tr>
+<tr class="row-even"><td><p>–minstep</p></td>
+<td><p>min step in bp [default : 100]</p></td>
+</tr>
+<tr class="row-odd"><td><p>–maxdis</p></td>
+<td><p>max length of dmr [default : 0]</p></td>
+</tr>
+<tr class="row-even"><td><p>–pvalue</p></td>
+<td><p>pvalue cutoff, default: 0.01</p></td>
+</tr>
+<tr class="row-odd"><td><p>–FDR</p></td>
+<td><p>adjust pvalue cutoff default : 1.0</p></td>
+</tr>
+<tr class="row-even"><td><p>–methdiff</p></td>
+<td><p>the cutoff of methylation differention. default: 0.25 [CpG]</p></td>
+</tr>
+<tr class="row-odd"><td><p>–element</p></td>
+<td><p>caculate predefinded region, input file with id.</p></td>
+</tr>
+<tr class="row-even"><td><p>–context</p></td>
+<td><p>Context for DM. [CG/CHG/CHH/ALL]</p></td>
+</tr>
+<tr class="row-odd"><td><p>-L</p></td>
+<td><p>predefinded regions or loci.</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>-h|–help</p></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple">
+<li><p>Auto define DMR region according the dmc</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>BatMeth2 bmDMR -p dm.output -1 <span class="o">[</span>sample1.methC.mbw replicates ..<span class="o">]</span> <span class="se">\</span>
+-2 <span class="o">[</span>sample2.methC.mbw replicates ..<span class="o">]</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Pre-definded regions (Gene/TE/UTR/CDS or other regions, not suggest)</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>BatMeth2 bmDMR -L -o_dm dm.output -1 <span class="o">[</span>sample1.methC.mbw replicates ..<span class="o">]</span> <span class="se">\</span>
+-2 <span class="o">[</span>sample2.methC.mbw replicates ..<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="output-file">
+<h2><a class="toc-backref" href="#id3">Output file</a><a class="headerlink" href="#output-file" title="Permalink to this headline">#</a></h2>
+<ol class="arabic simple">
+<li><p>DMC</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># format</span>
+Chrom position starnd context pvalue adjust_pvalue combine_pvalue corrected_pvalue <span class="se">\</span>
+cover_sample1 meth_sample1 cover_sample2 cover_sample2 meth.diff
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>DMR</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># format</span>
+Chrom start end methlevelInSample1 methlevelInSample2 NdmcInRegion hypermdc,hypodmc
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For feature requests or bug reports please open an issue <a class="reference external" href="http://github.com/ZhouQiangwei/BatMeth2">on github</a>.</p>
+</div>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="PlotMeth.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">PlotMeth</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Requirements.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Requirements</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By momocoding<br/>
+  
+      &copy; Copyright 2020, momocoding.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

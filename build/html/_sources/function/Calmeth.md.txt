@@ -1,0 +1,38 @@
+BatMeth2: calmeth
+--------------------------------------------------
+
+Command Format :  calmeth [options] -g GENOME  -i/-b <Samfile/Bamfile> -m <methratio outfile prefix> -p 6
+
+**Usage:**
+
+-g|--genome           Genome
+
+​	-i|--input            Sam format file
+
+​	-b|--binput           Bam format file
+
+​	-p|--threads          the number of threads.
+
+​	-n|--Nmismatch        Number of mismatches
+
+​	-m|--methratio        [MethFileNamePrefix]  Predix of methratio output file
+
+​	-Q [int]              caculate the methratio while read QulityScore >= Q. default:10
+
+​	-c|--coverage         >= <INT> coverage. default:5
+
+​	-nC		         >= <INT> nCs per region. default:5
+
+​	-R |--Regions         Bins for DMR caculate , default 1kb .
+
+​	--binsfile            DNA methylation level distributions in chrosome, default output file: {methratioPrefix}.methBins.txt
+
+​	-s|--step             Chrosome using an overlapping sliding window of 100000bp at a step of 50000bp. default step: 50000(bp)
+
+​	-r|--remove_dup       REMOVE_DUP, default:false
+
+​	-f|--sam [outfile]    f for sam format outfile contain methState. default: sam format.
+
+​	--sam-seq-beforeBS    Converting BS read to the genome sequences.
+
+​	-h|--help 

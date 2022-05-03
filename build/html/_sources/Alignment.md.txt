@@ -1,0 +1,46 @@
+BatMeth2: Alignment
+--------------------------------------------------
+
+**Program: BatMeth2  align**
+
+Version: v1.0
+
+[ Single-end-reads ]
+
+**Usage:**   batmeth2 -g INDEX -i INPUT -o OUTPUT
+
+Example:   batmeth2 -g /data/index/hg19/hg19.fa -i Read.fq -o outPrefix -p 10
+
+[ Paired-end-reads ]
+
+**Usage:**   batmeth2 -g INDEX -i INPUT_left -i INPUT_right -o OUTPUT
+
+Example:   batmeth2 -g /data/index/hg19/hg19.fa -i Read_R1_left.fq -i Read_R2_right.fq -o outPrefix -p 10
+
+Parameters : 
+
+​      --inputfile | -i <filename>   Name of input file
+
+​      --genome | -g <filename>      Name of the genome mapped against
+
+​      --outputfile | -o <filename>  Name of output file prefix
+
+​      --indelsize                   indel size
+
+​      --non_directional             Alignments to all four bisulfite strands will be reported. Default: OFF. 
+
+​      --insertsize | -s             inital insert size, default 800
+
+​      --std | -d <integer>          standard deviatiion of reads distribution
+
+​      --flanksize | -f <integer>    size of flanking region for Smith-Waterman
+
+​      --swlimit | <integer>         try at most <integer> sw extensions
+
+​      --threads | -p <integer>      Launch <integer> threads
+
+​      --NoInDels | -I               not to find the indels result
+
+​      --help | -h                   Print help
+
+Note: To use BatMeth2, you need to first index the genome with `build_all genome'.

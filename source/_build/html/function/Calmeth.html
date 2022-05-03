@@ -1,0 +1,361 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Calculate DNA methylation level &mdash; BatMeth2 1.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Calulate mC across predefined regions" href="MethyGff.html" />
+    <link rel="prev" title="Alignment" href="Alignment.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> BatMeth2
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example.html">Example Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bdindex.html">Build index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Pipeline.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Alignment.html">Alignment</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Calculate DNA methylation level</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#calmeth">Calmeth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#paramaters">Paramaters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#output-files">Output files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#output-file-format">Output file format</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="MethyGff.html">Calulate mC across predefined regions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bt2bigwig.html">Meth2BigWig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PlotMeth.html">PlotMeth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DiffMeth.html">DiffMeth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Requirements.html">Requirements</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BatMeth2</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Calculate DNA methylation level</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/function/Calmeth.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="calculate-dna-methylation-level">
+<h1>Calculate DNA methylation level<a class="headerlink" href="#calculate-dna-methylation-level" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#calmeth" id="id1">Calmeth</a></p></li>
+<li><p><a class="reference internal" href="#paramaters" id="id2">Paramaters</a></p></li>
+<li><p><a class="reference internal" href="#output-files" id="id3">Output files</a></p></li>
+<li><p><a class="reference internal" href="#output-file-format" id="id4">Output file format</a></p></li>
+</ul>
+</div>
+<div class="section" id="calmeth">
+<h2><a class="toc-backref" href="#id1">Calmeth</a><a class="headerlink" href="#calmeth" title="Permalink to this headline">¶</a></h2>
+<p>Calculate DNA methylation level from alignment files, you can obtained single-base cytosine DNA
+methylation results, and the chromosome region DNA methylation levels files.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>An example usage is:
+  with bam file:
+    calmeth <span class="o">[</span>options<span class="o">]</span> -g genome.fa  -b alignment.sort.bam -m output.methrario.txt
+  with sam file:
+    calmeth <span class="o">[</span>options<span class="o">]</span> -g genome.fa  -i alignment.sort.sam -m output.methrario.txt
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The bam or sam file MUST sorted by <cite>samtools sort</cite>.</p>
+</div>
+</div>
+<div class="section" id="paramaters">
+<h2><a class="toc-backref" href="#id2">Paramaters</a><a class="headerlink" href="#paramaters" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 4%" />
+<col style="width: 17%" />
+<col style="width: 79%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head" colspan="3"><p><strong>[ Main paramaters ]</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td colspan="2"><p>-m/–methratio</p></td>
+<td><p>[MethFileNamePrefix]  Predix of methratio output file</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p>–genome/-g</p></td>
+<td><p>Name of the genome mapped against, MUST build index first <a class="reference internal" href="bdindex.html"><span class="doc">Build index</span></a></p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>-i/–input</p></td>
+<td><p>Sam format file, sorted by samtools sort.</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p>-b/–binput</p></td>
+<td><p>Bam format file, sorted by samtools sort.</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>-Q [int]</p></td>
+<td><p>caculate the methratio while read QulityScore &gt;= Q. default:20</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p>-n [float]</p></td>
+<td><p>Number of mismatches, default 0.06 percentage of read length. [0-1]</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>-c|–coverage</p></td>
+<td><p>&gt;= &lt;INT&gt; coverage. default:4</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p>-nC</p></td>
+<td><p>&gt;= &lt;INT&gt; Cs per region. default:1</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>-R/–Regions</p></td>
+<td><p>Bins for DMR caculate , default 1000(1kb) .</p></td>
+</tr>
+<tr class="row-odd"><td colspan="3"><p>–binsfile</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td colspan="2"><p>DNA methylation level distributions in chrosome, default output file: {Prefix}.methBins.txt</p></td>
+</tr>
+<tr class="row-odd"><td colspan="3"><p>-s/–step</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td colspan="2"><p>Chrosome using an overlapping sliding window of 100000bp at a step of 50000bp.
+default step: 50000(bp)</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p>-r/–remove_dup</p></td>
+<td><p>REMOVE_DUP, default:true</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>-f|–sam [outfile]</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td colspan="2"><p>f for sam format outfile contain methState.</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>–sam-seq-beforeBS</p></td>
+<td><p>Converting BS read to the genome sequences.</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p>–help/-h</p></td>
+<td><p>Print help</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="output-files">
+<h2><a class="toc-backref" href="#id3">Output files</a><a class="headerlink" href="#output-files" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">1</span>. prefix.methratio.txt
+<span class="m">2</span>. prefix.methBins.txt
+<span class="m">3</span>. prefix_Region.CG/CHG/CHH.txt
+<span class="m">4</span>. prefix.mCdensity.txt
+<span class="m">5</span>. prefix.mCcatero.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="output-file-format">
+<h2><a class="toc-backref" href="#id4">Output file format</a><a class="headerlink" href="#output-file-format" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">1</span>. methratio
+    Chromosome Loci Strand Context C_count CT_count methlevel eff_CT_count rev_G_count rev_GA_count MethContext 5context
+    <span class="c1"># ex. Chr1    61      +       CHH     3       11      0.286364        10.5    20      21      hU      ATCTT</span>
+    <span class="c1"># C_count      The number of C in this base pair.</span>
+    <span class="c1"># CT_count     The number of coverage in this base pair.</span>
+    <span class="c1"># eff_CT_count Adjust read coverage based on opposite strand.</span>
+    <span class="c1"># rev_G_count  The number of G in the reverse strand.</span>
+    <span class="c1"># rev_GA_count The number of coverage in the reverse strand.</span>
+    <span class="c1"># MethContext  M/Mh/H/hU/U, M means the methylation level ≥ 80%, etc</span>
+<span class="m">2</span>. methBins
+    Chrom BinIndex methlevel context
+    <span class="c1"># ex. Chr1    1       0.113674        CG</span>
+    <span class="c1"># The BinIndex is defined by -s paramater in calmeth.</span>
+    <span class="c1"># This file can be used for visualization the DNA methylation level acorss the chromosome.</span>
+<span class="m">3</span>. Region
+    chrom regionStart strand context c_count ct_count
+    <span class="c1"># ex. Chr1    1001    +       CG      1       227</span>
+    <span class="c1"># The bins methylation level output file (BS.mr_Region.C*.txt) can be used to do DMR detection.</span>
+<span class="m">4</span>. mCdensity
+    CG/CHG/CHH C count <span class="k">in</span> <span class="o">[</span><span class="m">0</span>, <span class="m">1</span>%<span class="o">)</span> <span class="o">[</span><span class="m">1</span>%, <span class="m">2</span>%<span class="o">)</span> ... <span class="o">[</span><span class="m">49</span>%, <span class="m">50</span>%<span class="o">)</span> ... <span class="o">[</span><span class="m">99</span>%, <span class="m">100</span>%<span class="o">]</span>
+    <span class="c1"># According to the DNA methylation level, the number of cytosine sites at different methylation levels was counted from 0 to 100.</span>
+<span class="m">5</span>. mCcatero
+    Average DNA methylation level including mC, mCG and other states.
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For feature requests or bug reports please open an issue <a class="reference external" href="http://github.com/ZhouQiangwei/BatMeth2">on github</a>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="MethyGff.html" class="btn btn-neutral float-right" title="Calulate mC across predefined regions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Alignment.html" class="btn btn-neutral float-left" title="Alignment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, momocoding.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

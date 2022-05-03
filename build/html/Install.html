@@ -1,0 +1,483 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>BatMeth2: An Integrated Package for Bisulfite DNA Methylation Data Analysis with Indel-sensitive Mapping. &mdash; BatMeth2 1.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> BatMeth2
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="function/install.html">Installation</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BatMeth2</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>BatMeth2: An Integrated Package for Bisulfite DNA Methylation Data Analysis with Indel-sensitive Mapping.</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Install.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="batmeth2-an-integrated-package-for-bisulfite-dna-methylation-data-analysis-with-indel-sensitive-mapping">
+<h1>BatMeth2: An Integrated Package for Bisulfite DNA Methylation Data Analysis with Indel-sensitive Mapping.<a class="headerlink" href="#batmeth2-an-integrated-package-for-bisulfite-dna-methylation-data-analysis-with-indel-sensitive-mapping" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="requirements">
+<h1>REQUIREMENTS<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li><p>gcc (v4.8) , gsl library, zlib</p></li>
+<li><p>samtools (suggest: v1.3.1)</p></li>
+<li><p>fastp, raw reads as input need</p></li>
+</ol>
+</div>
+<div class="section" id="install">
+<h1>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h1>
+<ol class="loweralpha simple">
+<li><p>Download 1)</p></li>
+<li><p>unzip 1)</p></li>
+<li><p>Change directory into the top directory of b) “BatMeth2/”</p></li>
+<li><p>Type</p></li>
+</ol>
+<ul class="simple">
+<li><p>./configure</p></li>
+<li><p>make</p></li>
+<li><p>make install</p></li>
+</ul>
+<ol class="loweralpha simple" start="5">
+<li><p>The binary of BatMeth2 will be created in bin/</p></li>
+</ol>
+</div>
+<div class="section" id="building-index">
+<h1>Building index<a class="headerlink" href="#building-index" title="Permalink to this headline">¶</a></h1>
+<ol class="loweralpha simple">
+<li><p>Have a fasta-formatted reference file ready</p></li>
+<li><p>Type “<cite>BatMeth2 build_index GENOME.fa</cite>”  for WGBS or <cite>BatMeth2 build_index rrbs GENOME.fa</cite> for RRBS to make the neccessary pairing data-structure based on FM-index.</p></li>
+<li><p>Run “<cite>BatMeth2</cite>” to see information on usage.</p></li>
+</ol>
+</div>
+<div class="section" id="usage-of-batmeth2">
+<h1>Usage of BatMeth2<a class="headerlink" href="#usage-of-batmeth2" title="Permalink to this headline">¶</a></h1>
+<p><strong>Example Data</strong></p>
+<p>You can download the test data on <cite>https://drive.google.com/open?id=1SEpvJbkjwndYcpkd39T11lrBytEq_MaC</cite>
+Or <cite>https://pan.baidu.com/s/1mliGjbn_33wlQLieqy5YOQ</cite> with extraction code: <cite>kr32</cite>.</p>
+<p><strong>Example data contain files:</strong></p>
+<ul class="simple">
+<li><p>input fastq.gz (paired end)</p></li>
+<li><p>genome file</p></li>
+<li><p>usage code and details</p></li>
+<li><p>gene annotation file</p></li>
+</ul>
+<p>### Citation:
+[Zhou Q, Lim J-Q, Sung W-K, Li G: An integrated package for bisulfite DNA methylation data analysis with Indel-sensitive mapping. BMC Bioinformatics 2019, 20:47.](<a class="reference external" href="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-018-2593-4">https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-018-2593-4</a>)</p>
+<p>### BatMeth2 pipeline</p>
+<p>An easy-to-use, auto-run package for DNA methylation analyses</p>
+<p>​    In order to complete the DNA methylation data analysis more conveniently, we packaged all the functions to complete an easy-to-use, auto-run package for DNA methylation analysis. During the execution of BatMeth2 Tool, an html report is generated about statistics of the sample.</p>
+<p>The usage is here:</p>
+<p>Raw reads:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">BatMeth2</span> <span class="pre">pipel</span> <span class="pre">--fastp</span> <span class="pre">~/location/to/fastp</span> <span class="pre">-1</span> <span class="pre">Raw_reads_1.fq.gz</span> <span class="pre">-2</span> <span class="pre">Raw_read_2.fq.gz</span> <span class="pre">-g</span> <span class="pre">./batmeth2index/genome.fa</span> <span class="pre">-o</span> <span class="pre">meth</span> <span class="pre">-p</span> <span class="pre">8</span> <span class="pre">--gff</span> <span class="pre">./gene.gff</span>
+<span class="pre">`</span></code></p>
+<p>Or clean reads:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">BatMeth2</span> <span class="pre">pipel</span> <span class="pre">-1</span> <span class="pre">Clean_reads_1.fq.gz</span> <span class="pre">-2</span> <span class="pre">Clean_read_2.fq.gz</span> <span class="pre">-g</span> <span class="pre">./batmeth2index/genome.fa</span> <span class="pre">-o</span> <span class="pre">meth</span> <span class="pre">-p</span> <span class="pre">8</span> <span class="pre">--gff</span> <span class="pre">./gene.gff</span>
+<span class="pre">`</span></code></p>
+<p>### BatMeth2 pipeline parameters</p>
+<p><strong>BatMeth2 [mode][paramaters]</strong></p>
+<p>mode:  build_index, pipel, align, calmeth, annoation, batDMR&lt;br&gt;</p>
+<dl class="simple">
+<dt><strong>[build_index]</strong> &lt;br&gt;</dt><dd><p>Usage:  (must run this step first) &lt;br&gt;</p>
+</dd>
+</dl>
+<ol class="arabic simple">
+<li><p>BatMeth2 build_index genomefile.&lt;br&gt;</p></li>
+<li><p>BatMeth2 build_index rrbs genomefile. &lt;br&gt;</p></li>
+</ol>
+<dl>
+<dt><strong>[pipel (Contains: align, calmeth, annoation, methyPlot, mkreport)]</strong> &lt;br&gt;</dt><dd><dl>
+<dt><strong>[fastp location]</strong> &lt;br&gt;</dt><dd><p>&amp;emsp;&amp;emsp; –fastp    fastp program location. &lt;br&gt;
+&amp;emsp;&amp;emsp; If –fastp is not defined, the input file should be clean data. &lt;br&gt;</p>
+</dd>
+<dt><strong>[select aligner]</strong> &lt;br&gt;</dt><dd><p>–aligner &amp;emsp;&amp;emsp; BatMeth2(default), bwa-meth, bsmap, bismark2, no (exit output_prefix.sam file, no need align again) &lt;br&gt;</p>
+</dd>
+<dt><strong>[other aligners paramaters]</strong> &lt;br&gt;</dt><dd><p>–go &amp;emsp;&amp;emsp;&amp;emsp; Name of the genome, contaion index build by aligner. (bwa-meth/bismark2) &lt;br&gt;</p>
+</dd>
+<dt><strong>[main paramaters]</strong> &lt;br&gt;</dt><dd><blockquote>
+<div><p>–config &amp;emsp; [config file]. &amp;emsp;&amp;emsp;  When we run pipel function in batches datasets, &lt;br&gt;
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp; please fill in the specified configuration file. &lt;br&gt;
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp; And there is a sample file (multirun.onf) in the BatMeth2 directory. &lt;br&gt;
+–mp&amp;emsp;[4] &amp;emsp; When batch processing data, we set the number of samples to run at a time (-mp, default is 4), and each sample needs six threads (- P parameter) by default. &lt;br&gt;</p>
+</div></blockquote>
+<p>-o &amp;emsp; Name of output file prefix&lt;br&gt;
+-O &amp;emsp; Output of result file to specified folder, default output to current folder (./) &lt;br&gt;</p>
+</dd>
+<dt><strong>[alignment paramaters]</strong> &lt;br&gt;</dt><dd><p>-i &amp;emsp;&amp;ensp; Name of input file, if paired-end. please use -1, -2, input files can be separated by commas &lt;br&gt;
+-1 &amp;emsp;&amp;ensp; Name of input file left end, if single-end. please use -i &lt;br&gt;
+-2 &amp;emsp;&amp;ensp; Name of input file left end &lt;br&gt;
+-g &amp;emsp; Name of the genome mapped against &lt;br&gt;
+-n &amp;emsp; maximum mismatches allowed due to seq. errors &lt;br&gt;
+-p &lt;interger&gt; &amp;emsp; Launch &lt;integer&gt; threads &lt;br&gt;</p>
+</dd>
+<dt><strong>[calmeth paramaters]</strong> &lt;br&gt;</dt><dd><p>–Qual &amp;emsp;&amp;ensp;&amp;ensp; calculate the methratio while read QulityScore &gt;= Q. default:10 &lt;br&gt;
+–redup &amp;emsp;&amp;ensp; REMOVE_DUP, 0 or 1, default 0 &lt;br&gt;
+–region &amp;emsp; Bins for DMR calculate , default 1000bp . &lt;br&gt;
+-f  &amp;emsp;&amp;ensp; for sam format outfile contain methState. [0 or 1], default: 0 (dont output this file). &lt;br&gt;</p>
+</dd>
+<dt><strong>[calmeth and annoation paramaters]</strong> &lt;br&gt;</dt><dd><p>–coverage &amp;emsp;&amp;ensp; &gt;= &lt;INT&gt; coverage. default:5 &lt;br&gt;
+–binCover &amp;emsp;&amp;ensp; &gt;= &lt;INT&gt; nCs per region. default:3 &lt;br&gt;
+–chromstep &amp;emsp; Chromosome using an overlapping sliding window of 100000bp at a step of 50000bp. default step: 50000(bp) &lt;br&gt;</p>
+</dd>
+<dt><strong>[annoation paramaters]</strong> &lt;br&gt;</dt><dd><p>–gtf/–gff/–bed &amp;emsp; Gtf or gff file / bed file &lt;br&gt;
+–distance &amp;emsp;&amp;ensp; DNA methylation level distributions in body and &lt;INT&gt;-bp flanking sequences. The distance of upstream and downstream. default:2000 &lt;br&gt;
+–step &amp;emsp;&amp;emsp; Gene body and their flanking sequences using an overlapping sliding window of 5% of the sequence length at a step of 2.5% of the sequence length. So default step: 0.025 (2.5%) &lt;br&gt;
+-C   &amp;emsp;&amp;emsp;   &lt;= &lt;INT&gt; coverage. default:1000 &lt;br&gt;</p>
+</dd>
+<dt><strong>[mkreport paramaters]</strong> &lt;br&gt;</dt><dd><p>Make a batmeth2 html report, can see the detail in BatMeth2_Report/ directory. &lt;br&gt;
+<strong>-o [outprefix]</strong> &lt;br&gt;</p>
+</dd>
+</dl>
+<p>-h|–help   usage &lt;br&gt;</p>
+</dd>
+</dl>
+<p>## Output files</p>
+<p>Output file format and details see “<a class="reference external" href="https://github.com/GuoliangLi-HZAU/BatMeth2/blob/master/output_details.pdf">https://github.com/GuoliangLi-HZAU/BatMeth2/blob/master/output_details.pdf</a>”.&lt;br&gt;</p>
+<p>Output report details see “<a class="reference external" href="https://www.dna-asmdb.com/download/batmeth2.html">https://www.dna-asmdb.com/download/batmeth2.html</a>” .&lt;br&gt;</p>
+<p>## Functions in BatMeth2</p>
+<p>BatMeth2 has the following main features:</p>
+<ol class="arabic simple">
+<li><p>Batmeth2 has efficient and accurate alignment performance.</p></li>
+<li><p>Batmeth2 can calculate DNA methylation level of base site</p></li>
+<li><p>BatMeth2 also can caculate and annotation DNA methylation level on chromosome region or gene/TE etc. functional region.</p></li>
+<li><p>By integrating BS-Seq data visualization (DNA methylation distribution on chromosome and gene etc) and BatMeth2 can show the results of the DNA methylation data more clearly.</p></li>
+<li><p>BatMeth2 can perform effective DNA methylation differential regions analysis based on the number of input samples and user requirements. And BatMeth2 provide differential methylation annotation ability.</p></li>
+</ol>
+<p>#### 1. BatMeth2 alignment</p>
+<p><strong>Program: BatMeth2  align</strong></p>
+<p>Version: v1.0</p>
+<p>[ Single-end-reads ]</p>
+<p><strong>Usage:</strong>     batmeth2 -g INDEX -i INPUT -o OUTPUT</p>
+<p>Example:   batmeth2 -g /data/index/hg19/hg19.fa -i Read.fq -o outPrefix -p 10</p>
+<p>[ Paired-end-reads ]</p>
+<p><strong>Usage:</strong>     batmeth2 -g INDEX -i INPUT_left -i INPUT_right -o OUTPUT</p>
+<p>Example:   batmeth2 -g /data/index/hg19/hg19.fa -i Read_R1_left.fq -i Read_R2_right.fq -o outPrefix -p 10</p>
+<p>Parameters :</p>
+<p>​      –inputfile | -i &lt;filename&gt;   Name of input file</p>
+<p>​      –genome | -g &lt;filename&gt;      Name of the genome mapped against</p>
+<p>​      –outputfile | -o &lt;filename&gt;  Name of output file prefix</p>
+<p>​      –indelsize                   indel size</p>
+<p>​      –non_directional             Alignments to all four bisulfite strands will be reported. Default: OFF.</p>
+<p>​      –insertsize | -s             inital insert size, default 800</p>
+<p>​      –std | -d &lt;integer&gt;          standard deviatiion of reads distribution</p>
+<p>​      –flanksize | -f &lt;integer&gt;    size of flanking region for Smith-Waterman</p>
+<p>​      –swlimit | &lt;integer&gt;         try at most &lt;integer&gt; sw extensions</p>
+<p>​      –threads | -p &lt;integer&gt;      Launch &lt;integer&gt; threads</p>
+<p>​      –NoInDels | -I               not to find the indels result</p>
+<p>​      –help | -h                   Print help</p>
+<p>Note: To use BatMeth2, you need to first index the genome with <a href="#id1"><span class="problematic" id="id2">`</span></a>build_all genome’.</p>
+<p>#### 2. BatMeth2 calmeth</p>
+<p>Command Format :  calmeth [options] -g GENOME  -i/-b &lt;Samfile/Bamfile&gt; -m &lt;methratio outfile prefix&gt; -p 6</p>
+<p><strong>Usage:</strong></p>
+<p>-g|–genome           Genome</p>
+<p>​       -i|–input            Sam format file</p>
+<p>​       -b|–binput           Bam format file</p>
+<p>​       -p|–threads          the number of threads.</p>
+<p>​       -n|–Nmismatch        Number of mismatches</p>
+<p>​       -m|–methratio        [MethFileNamePrefix]  Predix of methratio output file</p>
+<p>​       -Q [int]              caculate the methratio while read QulityScore &gt;= Q. default:10</p>
+<p>​       -c|–coverage         &gt;= &lt;INT&gt; coverage. default:5</p>
+<p>​       -nC                      &gt;= &lt;INT&gt; nCs per region. default:5</p>
+<p>​       -R <a href="#id3"><span class="problematic" id="id4">|</span></a>–Regions         Bins for DMR caculate , default 1kb .</p>
+<p>​       –binsfile            DNA methylation level distributions in chrosome, default output file: {methratioPrefix}.methBins.txt</p>
+<p>​       -s|–step             Chrosome using an overlapping sliding window of 100000bp at a step of 50000bp. default step: 50000(bp)</p>
+<p>​       -r|–remove_dup       REMOVE_DUP, default:false</p>
+<p>​       -f|–sam [outfile]    f for sam format outfile contain methState. default: sam format.</p>
+<p>​       –sam-seq-beforeBS    Converting BS read to the genome sequences.</p>
+<p>​       -h|–help</p>
+<p>#### 3. BatMeth2 annotation</p>
+<p>BatMeth2:  MethyGff v1.0</p>
+<p>Command Format :   methyGff [options] -o &lt;OUT_PREFIX&gt; -G GENOME -gff &lt;GFF file&gt;/-gtf &lt;GTF file&gt;/-b &lt;bed file&gt; -m &lt;from Split methratio outfile&gt; [-B][-P]</p>
+<p><strong>Usage:</strong></p>
+<p>​       -o|–out         Output file prefix</p>
+<p>​       -G|–genome      Genome</p>
+<p>​       -m|–methratio   Methratio output file.</p>
+<p>​       -c|–coverage    &gt;= &lt;INT&gt; coverage. default:5</p>
+<p>​       -C               &lt;= &lt;INT&gt; coverage. default 600.</p>
+<p>​       -nC              &gt;= &lt;INT&gt; Cs per bins or genes. default:5</p>
+<p>​       -gtf|-gff        Gtf/gff file</p>
+<p>​       -b|–BED         Bed file, chrom start end (strand)</p>
+<p>​       -d|–distance    DNA methylation level distributions in body and &lt;INT&gt;-bp flanking sequences. The distance of upstream and downstream. default:2000</p>
+<p>​       -B|–body        For different analysis input format, gene/TEs body methylation level. [Different Methylation Gene(DMG/DMT…)]</p>
+<p>​       -P|–promoter    For different analysis input format.[Different Methylation Promoter(DMP)]</p>
+<p>​       –TSS            Caculate heatmap for TSS. [Outfile: outPrefix.TSS.cg.n.txt]</p>
+<p>​       –TTS            Caculate heatmap for TTS. [Outfile: outPrefix.TTS.cg.n.txt]</p>
+<p>​       –GENE           Caculate heatmap for GENE and flank 2k. [Outfile: outPrefix.GENE.cg.n.txt]</p>
+<p>​       -s|–step        Gene body and their flanking sequences using an overlapping sliding window of 5% of the sequence length at a step of 2.5% of the sequence length. So default step: 0.025 (2.5%)</p>
+<p>​       -S|–chromStep   Caculate the density of genes/TEs in chromsome using an overlapping sliding window of 100000bp at a step of 50000bp, must equal “-s” in Split.. default step: 50000(bp)</p>
+<p>​       -h|–help</p>
+<p>#### 4. BatMeth2 methyPlot</p>
+<p><strong>Usage1:</strong></p>
+<ul class="simple">
+<li><p>methyPlot chromsome.bins.txt chrosome.methy.distri.pdf step&lt;default:0.025&gt; Infile1.from.batmeth2:methyGff out1.pdf starLabel endLabel Infile2 out2.pdf</p></li>
+</ul>
+<p>eg: methyPlot chromsome.bins.txt chrosome.methy.distri.pdf 0.025 gene.meth.Methylevel.1.txt methlevel.pdf TSS TTS gene.meth.AverMethylevel.1.txt elements.pdf</p>
+<p><a href="#id5"><span class="problematic" id="id6">**</span></a>Usage2: **</p>
+<ul class="simple">
+<li><p>methyPlot chromsome.bins.txt chrosome.methy.distri.pdf 0.025 gene.meth.Methylevel.1.txt methlevel.pdf TSS TTS gene.meth.AverMethylevel.1.txt elements.pdf test.annoDensity.1.txt test.density.pdf sampleElmentName test.mCdensity.txt test.mCdensity.pdf test.mCcatero.txt test.mCcatero.pdf 0.8 0.1 0.1</p></li>
+</ul>
+<p><strong>Visulization case 2: two more samples</strong></p>
+<p><em>Contains:</em></p>
+<ul>
+<li><dl>
+<dt>The density of gene, transposon elements (TE) and the level of DNA methylation in the different samples of the whole genome. &lt;br&gt;</dt><dd><p>$ <cite>Rscript density_plot_with_methyl.r inputFile1 input2 genedensityFile TEdensity output.pdf label1 label2</cite></p>
+<p><a href="#id7"><span class="problematic" id="id8">*</span></a>example: Rscript ~/software/batmeth2/src/density_plot_with_methyl.r WT.methChrom.Rd.txt Mutant.methChrom.Rd.txt WT.noRd.Gff.gffDensity.1.txt WT.noRd.TE.gffDensity.1.txt density.Out.pdf WT mutant *</p>
+</dd>
+</dl>
+</li>
+<li><p>DNA methylation level distribution across genes/TEs in different samples.</p>
+<blockquote>
+<div><p>$ <cite>Rscript methylevel.elements.r step(default:0.025) Input.Sample1.from.Batmeth2:methyGff Input.Sample2 outfilePrefix xLab1 xLab2 Sample1Prefix Sample2Prefix</cite></p>
+<p><a href="#id9"><span class="problematic" id="id10">*</span></a>example: Rscript methylevel.elements.compare.r 0.025 sample1.gene.meth.Methylevel.1.txt sample2.gene.meth.Methylevel.1.txt methlevel TSS TTS mutant WT *</p>
+</div></blockquote>
+</li>
+</ul>
+<p>#### 5. BatMeth2 DMC or DMR/DMG</p>
+<p>![dmr-batmeth2.png](<a class="reference external" href="https://upload-images.jianshu.io/upload_images/19460405-a87a7571c57ef1f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">https://upload-images.jianshu.io/upload_images/19460405-a87a7571c57ef1f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240</a>)</p>
+<p>##### BatMeth2: DMR</p>
+<p>Command Format :  DMR [options] -g genome.fa -o_dm &lt;DM_result&gt;  -1 [Sample1-methy ..] -2 [sample2-methy ..]</p>
+<p><strong>Usage:</strong></p>
+<p>​       -o_dm        output file</p>
+<p>​       -o_dmr       when use auto detect by dmc</p>
+<p>​       -g|–genome  Genome</p>
+<p>​       -1           sample1 methy files, sperate by space.</p>
+<p>​       -2           sample2 methy files, sperate by space.</p>
+<p>​       -FDR         adjust pvalue cutoff default : 0.05</p>
+<p>​       -methdiff    the cutoff of methylation differention. default: 0.25 [CpG]</p>
+<p>​       -element     caculate gene or TE etc function elements.</p>
+<p>​       -L          predefinded regions</p>
+<p>​       -h|–help</p>
+<ol class="arabic simple">
+<li><p>Pre-definded regions (Gene/TE/UTR/CDS…,but must run ‘combined.element sample1 sample2 sample1out sample2out’ before batDMR)</p></li>
+</ol>
+<p>$ <cite>BatMeth2 batDMR -g genome -L -o_dm dm.output.txt -1 [sample1.methC.txt replicates ..] -2 [sample2.methC.txt replicates ..]</cite></p>
+<ol class="arabic simple" start="2">
+<li><p>Auto define DMR region according the dmc</p></li>
+</ol>
+<p>$ <cite>BatMeth2 batDMR -g genome -o_dm dm.output.txt -o_dmr dmr.output.txt -1 [sample1.methC.txt replicates ..] -2 [sample2.methC.txt replicates ..]</cite></p>
+<p>##### The output format</p>
+<dl class="simple">
+<dt><a href="#id11"><span class="problematic" id="id12">``</span></a><a href="#id13"><span class="problematic" id="id14">`</span></a></dt><dd><ol class="arabic simple">
+<li><p>dmc &lt;br&gt; Chrom position starnd context pvalue adjust_pvalue combine_pvalue corrected_pvalue cover_sample1 meth_sample1 cover_sample2 cover_sample2 meth.diff</p></li>
+<li><p>dmr &lt;br&gt; Chrom start end dmr score meth.diff aver_corrected_pvalue</p></li>
+</ol>
+</dd>
+</dl>
+<p><a href="#id15"><span class="problematic" id="id16">``</span></a><a href="#id17"><span class="problematic" id="id18">`</span></a></p>
+<p>##### Filter the result</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">awk</span> <span class="pre">'$6&lt;0.05</span> <span class="pre">&amp;&amp;</span> <span class="pre">sqrt($11*$11)&gt;0.6</span> <span class="pre">'</span> <span class="pre">H9vsIMR90.gene.dmr.txt</span> <span class="pre">&gt;</span> <span class="pre">H9vsIMR90.gene.dmr.filter.txt</span>
+<span class="pre">`</span></code></p>
+<p>##### DM annotation</p>
+<p>BatMeth2:  DMCplot</p>
+<p>Command Format :   DMCannotationPlot [options] -o &lt;Out_File&gt; -G GENOME -g &lt;GFF files..&gt; -d &lt;dmc file&gt; -c&lt;mC context&gt;</p>
+<p>Usage:</p>
+<p>​       -o|–out       Output file name.</p>
+<p>​       -G|–genome    Genome file</p>
+<p>​       -d|–dmcFile   dmc file. Format: Chrome Location strand</p>
+<p>​                 Format: chr pos strand</p>
+<p>​       -g|–gff       Gff files, 1 or more</p>
+<p>​       -c|–context   mC context, CG[default]/CHG/CHH/C.</p>
+<p>​       -h|–help</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">DMCannotationPlot</span> <span class="pre">[options]</span> <span class="pre">-o</span> <span class="pre">&lt;Out_File&gt;</span> <span class="pre">-G</span> <span class="pre">GENOME</span> <span class="pre">-g</span> <span class="pre">&lt;GFF</span> <span class="pre">files..</span> <span class="pre">eg:</span> <span class="pre">TE.gff</span> <span class="pre">gene.gff</span> <span class="pre">CDS.gff</span> <span class="pre">intron.gff</span> <span class="pre">lncRNA.gff</span> <span class="pre">...&gt;</span> <span class="pre">-d</span> <span class="pre">&lt;dmc</span> <span class="pre">file&gt;</span> <span class="pre">-c</span> <span class="pre">&lt;mC</span> <span class="pre">context</span> <span class="pre">default:</span> <span class="pre">CG&gt;</span>
+<span class="pre">`</span></code></p>
+<blockquote>
+<div><dl class="simple">
+<dt><a href="#id19"><span class="problematic" id="id20">**</span></a>Attention:<a href="#id21"><span class="problematic" id="id22">**</span></a>&lt;br&gt;</dt><dd><p><a href="#id23"><span class="problematic" id="id24">*</span></a>1.DMC file format : chr pos strand &lt;br&gt;
+2.GFF files are separated by spaces*&lt;br&gt;&lt;br&gt;</p>
+</dd>
+</dl>
+</div></blockquote>
+<hr class="docutils" />
+<p>Make sure all index files reside in the same directory.</p>
+<p>Built with <cite>BatMeth2 build_index Genome.fa</cite></p>
+<p>=-=-=-=-=-=-=-=-=-=</p>
+<p>GNU automake v1.11.1, GNU autoconf v2.63, gcc v4.4.7.</p>
+<p>Tested on Red Hat 4.4.7-11 Linux</p>
+<p>Thank you for your patience.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, momocoding
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
