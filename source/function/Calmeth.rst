@@ -82,7 +82,7 @@ Output file format
 
 .. code:: bash
 
-    1. methratio.mbw (binary file, view and processed with bmtools in BatMeth2)
+    1. methratio.mbw (binary file, view and processed with :doc:`bmtools` in BatMeth2)
         Chromosome Loci (end) methlevel CT_count Strand Context
         # ex. bmtools view -i test.mr.mbw -r Chr1:61-61
         # ex. Chr1    61      0.286364  11  +       CHH

@@ -23,19 +23,21 @@ bt2profile
 ----------
 
 Plot DNA methlation profile across gene/ TE/ predefined bed region, such as peak or dmr region.
-The input DNA methylation level matrix is produced by :doc:`MethyGff`.
+The input DNA methylation level matrix is produced by :doc:`bmtools`.
 
 
-The *.TSSprofile.txt *.centerprofile.txt and *.AverMethylevel.txt are calulated by :doc:`MethyGff`.
+The *.TSSprofile.txt *.centerprofile.txt and *.AverMethylevel.txt are calulated by :doc:`bmtools`.
 
 .. code:: bash
 
-    $ BatMeth2 methyGff -o H3K4me3.bdgene H3K4me3.unbdgene \
-        -G genome.fa -m methratio.txt \
-        -b H3K4me3.bdgene.bed H3K4me3.unbdgene.bed -B
+    $ bmtools profile -i sample1.methratio.mbw --bed H3K4me3.bdgene.bed -o H3K4me3.bdgene.profile \
+      --regionextend 2000 --bodyX 1 --matrixX 5 --profilemode 1
+    
+    $ bmtools profile -i sample1.methratio.mbw --bed H3K4me3.unbdgene.bed -o H3K4me3.unbdgene.profile \
+      --regionextend 2000 --bodyX 1 --matrixX 5 --profilemode 1
 
-    $ bt2profile.py -f H3K4me3.bdgene.TSSprofile.txt \
-        H3K4me3.unbdgene.TSSprofile.txt \
+    $ bt2profile.py -f H3K4me3.bdgene.profile.tss.txt \
+        H3K4me3.unbdgene.profile.tss.txt \
         -l H3K4me3.bdgene H3K4me3.unbdgene \
         --outFileName H3K4me3.output.meth.pdf \
         -s 1 1 -xl up2k TSS down2k --context C 
@@ -48,12 +50,14 @@ The *.TSSprofile.txt *.centerprofile.txt and *.AverMethylevel.txt are calulated 
 
 .. code:: bash
 
-    $ BatMeth2 methyGff -o active random \
-        -G genome.fa -m methratio.txt \
-        -b active.bed random.bed -B
+    $ bmtools profile -i sample1.methratio.mbw --bed active.bed -o active.profile \
+      --regionextend 2000 --bodyX 1 --matrixX 5 --profilemode 2
 
-    $ bt2profile.py -f active.centerprofile.txt \
-        random.centerprofile.txt \
+    $ bmtools profile -i sample1.methratio.mbw --bed random.bed -o random.profile \
+      --regionextend 2000 --bodyX 1 --matrixX 5 --profilemode 2
+
+    $ bt2profile.py -f active.profile.center.txt \
+        random.profile.center.txt \
         -l active random \
         --outFileName active_random.output.meth.pdf \
         -s 1 1 -xl up2k center down2k
@@ -62,8 +66,14 @@ The *.TSSprofile.txt *.centerprofile.txt and *.AverMethylevel.txt are calulated 
 
 .. code:: bash
 
-    $ bt2profile.py -f H3K27me3.bdgene.AverMethylevel.txt \
-        H3K27me3.unbdgene.AverMethylevel.txt \
+    $ bmtools profile -i sample1.methratio.mbw --bed H3K4me3.bdgene.bed -o H3K4me3.bdgene.profile \
+      --regionextend 2000 --bodyX 1 --matrixX 5 --profilemode 0
+    
+    $ bmtools profile -i sample1.methratio.mbw --bed H3K4me3.unbdgene.bed -o H3K4me3.unbdgene.profile \
+      --regionextend 2000 --bodyX 1 --matrixX 5 --profilemode 0
+
+    $ bt2profile.py -f H3K27me3.bdgene.profile.avarage.across.txt \
+        H3K27me3.unbdgene.profile.across.txt \
         -l H3K27me3.bdgene H3K27me3.unbdgene \
         --outFileName H3K27me3.output.meth.pdf \
         -s 1 1 1 -xl up2k TSS TES down2k

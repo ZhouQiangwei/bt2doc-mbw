@@ -142,14 +142,14 @@ Calculate DNA methylation profile matrix and avarage matrix across gene body, up
 .. code:: bash
 
     $ bmtools profile -i sample1.methratio.mbw --gtf gene.gtf -o gene.profile \
-      --regionextend 2000 --bodyX 1 --matrixX 5
+      --regionextend 2000 --bodyX 1 --matrixX 5 --profilemode 0
 
 Or with bed file:
 
 .. code:: bash
 
     $ bmtools profile -i sample1.methratio.mbw --bed gene.bed -o gene.profile \
-      --regionextend 2000 --bodyX 1 --matrixX 5
+      --regionextend 2000 --bodyX 1 --matrixX 5 --profilemode 0
 
 Please see 'bmtools profile' for more details.
 
