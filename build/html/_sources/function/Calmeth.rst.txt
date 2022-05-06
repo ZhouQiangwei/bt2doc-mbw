@@ -75,7 +75,7 @@ Output files
 
 .. code:: bash
 
-    1. prefix.methratio.mbw
+    1. prefix.methratio.mbw (binary file with index, view and processed with BMtools in BatMeth2)
     2. prefix.methBins.txt
     3. prefix_Region.CG/CHG/CHH.txt
     4. prefix.mCdensity.txt
@@ -86,7 +86,7 @@ Output file format
 
 .. code:: bash
 
-    1. methratio.mbw (binary file, view and processed with :doc:`BMtools` in BatMeth2)
+    1. methratio.mbw (binary file, view and processed with BMtools in BatMeth2)
         Chromosome Loci (end) methlevel CT_count Strand Context
         # ex. bmtools view -i test.mr.mbw -r Chr1:61-61
         # ex. Chr1    61      0.286364  11  +       CHH
