@@ -23,7 +23,7 @@ bt2profile
 ----------
 
 Plot DNA methlation profile across gene/ TE/ predefined bed region, such as peak or dmr region.
-The input DNA methylation level matrix is produced by :doc:`bmtools`.
+The input DNA methylation level matrix is produced by :doc:`BMtools`.
 
 
 The *.TSSprofile.txt *.centerprofile.txt and *.AverMethylevel.txt are calulated by :doc:`bmtools`.
