@@ -15,7 +15,7 @@ DNA methylation sequencing single-end data alignment:
 .. code:: bash
 
     An example usage is:
-        batmeth2 -g /data/index/genome/genome.fa -i Read.fq.gz -o outPrefix -p 10
+        BatMeth2 align -g /data/index/genome/genome.fa -i Read.fq.gz -o outPrefix -p 10
 
 Paired-end-reads
 ^^^^^^^^^^^^^^^^
@@ -25,7 +25,7 @@ DNA methylation sequencing paired-end data alignment:
 .. code:: bash
 
     An example usage is:
-        batmeth2 -g /data/index/genome/genome.fa -i Read_R1_left.fq.gz -i Read_R2_right.fq.gz\
+        BatMeth2 align -g /data/index/genome/genome.fa -i Read_R1_left.fq.gz -i Read_R2_right.fq.gz\
         -o outPrefix -p 10
 
 Parameters
@@ -43,18 +43,6 @@ Parameters
 | --threads/-p        | Launch <integer> threads                                                 |
 +---------------------+--------------------------------------------------------------------------+
 | --non_directional   | Alignments to all four bisulfite strands will be reported. Default: OFF. |
-+---------------------+--------------------------------------------------------------------------+
-| --insertsize/-s     | inital insert size, default 600, will be aoto detected by input files    |
-+---------------------+--------------------------------------------------------------------------+
-| --std/-d            | standard deviatiion of reads distribution, will aoto detected by input   |
-+---------------------+--------------------------------------------------------------------------+
-| --flanksize/-f      | size of flanking region for Smith-Waterman                               |
-+---------------------+--------------------------------------------------------------------------+
-| --swlimit           | try at most <integer> sw extensions                                      |
-+---------------------+--------------------------------------------------------------------------+
-| --indelsize         | indel size                                                               |
-+---------------------+--------------------------------------------------------------------------+
-| --NoInDels/-I       | not to find the indels result                                            |
 +---------------------+--------------------------------------------------------------------------+
 | --help/-h           | Print help                                                               |
 +---------------------+--------------------------------------------------------------------------+

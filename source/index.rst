@@ -37,7 +37,7 @@ Contents
    function/Pipeline
    function/Alignment
    function/Calmeth
-   function/bmtools
+   function/Bmtools
    function/PlotMeth
    function/DiffMeth
    function/Requirements
