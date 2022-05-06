@@ -1,4 +1,4 @@
-bmtools
+BMtools
 =======
 
 .. contents:: 
