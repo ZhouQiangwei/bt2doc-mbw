@@ -68,5 +68,5 @@ https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-018-2593-4
 
 
 
-.. tip:: For feature requests or bug reports please open an issue `on github <http://github.com/ZhouQiangwei/BatMeth2>`__.
+.. tip:: For feature requests or bug reports please open an issue `on github <http://github.com/ZhouQiangwei/BatMeth2-mbw>`__.
 
