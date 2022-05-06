@@ -15,13 +15,13 @@ For WGBS type
 
 .. code:: bash
 
-    BatMeth2 build_index GENOME.fa
+    BatMeth2 index -g genome.fa
 
 or for RRBS 
 
 .. code:: bash
 
-    BatMeth2 build_index rrbs GENOME.fa
+    BatMeth2 index_rrbs -g genome.fa
 
 Run `BatMeth2` to see information on usage.
 

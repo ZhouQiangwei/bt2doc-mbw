@@ -47,7 +47,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Pipeline.html">Pipeline</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Alignment.html">Alignment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Calmeth.html">Calculate DNA methylation level</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bmtools.html">bmtools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BMtools.html">BMtools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="PlotMeth.html">PlotMeth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DiffMeth.html">DiffMeth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Requirements.html">Requirements</a></li>
@@ -91,11 +91,11 @@
 <li><p>Have a fasta-formatted reference file ready, and then make the neccessary pairing data-structure based on FM-index.</p></li>
 </ul>
 <p>For WGBS type</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>BatMeth2 build_index GENOME.fa
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>BatMeth2 index -g genome.fa
 </pre></div>
 </div>
 <p>or for RRBS</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>BatMeth2 build_index rrbs GENOME.fa
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>BatMeth2 index_rrbs -g genome.fa
 </pre></div>
 </div>
 <p>Run <cite>BatMeth2</cite> to see information on usage.</p>

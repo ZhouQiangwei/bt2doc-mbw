@@ -21,7 +21,7 @@ The functions you can use BatMeth2 to do:
 
 * :doc:`function/Alignment`: Align bsseq data
 * :doc:`function/Calmeth`: Calulate DNA methylation level (ML) across whole genome output mbw format.
-* :doc:`function/bmtools`: tools for DNA methylation in mbw format, and prepare BigWIg file for browser.
+* :doc:`function/BMtools`: tools for DNA methylation in mbw format, and prepare BigWig file for browser.
 * :doc:`function/DiffMeth`: Perform differential analyses with auto defined regions or predefined regions. 
 * :doc:`function/PlotMeth`: Plot DNA ML profile, heatmap or boxplot across genes/TEs/etc. 
 
@@ -37,7 +37,7 @@ Contents
    function/Pipeline
    function/Alignment
    function/Calmeth
-   function/bmtools
+   function/BMtools
    function/PlotMeth
    function/DiffMeth
    function/Requirements

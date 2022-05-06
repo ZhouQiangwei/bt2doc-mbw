@@ -52,7 +52,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Calmeth.html">Calculate DNA methylation level</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bmtools.html">bmtools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BMtools.html">BMtools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="PlotMeth.html">PlotMeth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DiffMeth.html">DiffMeth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Requirements.html">Requirements</a></li>
@@ -101,7 +101,7 @@
 <h3><a class="toc-backref" href="#id2">Single-end-reads</a><a class="headerlink" href="#single-end-reads" title="Permalink to this headline"></a></h3>
 <p>DNA methylation sequencing single-end data alignment:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>An example usage is:
-    batmeth2 -g /data/index/genome/genome.fa -i Read.fq.gz -o outPrefix -p <span class="m">10</span>
+    BatMeth2 align -g /data/index/genome/genome.fa -i Read.fq.gz -o outPrefix -p <span class="m">10</span>
 </pre></div>
 </div>
 </section>
@@ -109,7 +109,7 @@
 <h3><a class="toc-backref" href="#id3">Paired-end-reads</a><a class="headerlink" href="#paired-end-reads" title="Permalink to this headline"></a></h3>
 <p>DNA methylation sequencing paired-end data alignment:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>An example usage is:
-    batmeth2 -g /data/index/genome/genome.fa -i Read_R1_left.fq.gz -i Read_R2_right.fq.gz<span class="se">\</span>
+    BatMeth2 align -g /data/index/genome/genome.fa -i Read_R1_left.fq.gz -i Read_R2_right.fq.gz<span class="se">\</span>
     -o outPrefix -p <span class="m">10</span>
 </pre></div>
 </div>
@@ -140,24 +140,6 @@
 </tr>
 <tr class="row-even"><td><p>–non_directional</p></td>
 <td><p>Alignments to all four bisulfite strands will be reported. Default: OFF.</p></td>
-</tr>
-<tr class="row-odd"><td><p>–insertsize/-s</p></td>
-<td><p>inital insert size, default 600, will be aoto detected by input files</p></td>
-</tr>
-<tr class="row-even"><td><p>–std/-d</p></td>
-<td><p>standard deviatiion of reads distribution, will aoto detected by input</p></td>
-</tr>
-<tr class="row-odd"><td><p>–flanksize/-f</p></td>
-<td><p>size of flanking region for Smith-Waterman</p></td>
-</tr>
-<tr class="row-even"><td><p>–swlimit</p></td>
-<td><p>try at most &lt;integer&gt; sw extensions</p></td>
-</tr>
-<tr class="row-odd"><td><p>–indelsize</p></td>
-<td><p>indel size</p></td>
-</tr>
-<tr class="row-even"><td><p>–NoInDels/-I</p></td>
-<td><p>not to find the indels result</p></td>
 </tr>
 <tr class="row-odd"><td><p>–help/-h</p></td>
 <td><p>Print help</p></td>

@@ -36,8 +36,8 @@ The *.TSSprofile.txt *.centerprofile.txt and *.AverMethylevel.txt are calulated 
     $ bmtools profile -i sample1.methratio.mbw --bed H3K4me3.unbdgene.bed -o H3K4me3.unbdgene.profile \
       --regionextend 2000 --bodyX 1 --matrixX 5 --profilemode 1
 
-    $ bt2profile.py -f H3K4me3.bdgene.profile.tss.txt \
-        H3K4me3.unbdgene.profile.tss.txt \
+    $ bt2profile.py -f H3K4me3.bdgene.profile.tss.aver \
+        H3K4me3.unbdgene.profile.tss.aver \
         -l H3K4me3.bdgene H3K4me3.unbdgene \
         --outFileName H3K4me3.output.meth.pdf \
         -s 1 1 -xl up2k TSS down2k --context C 
@@ -51,13 +51,13 @@ The *.TSSprofile.txt *.centerprofile.txt and *.AverMethylevel.txt are calulated 
 .. code:: bash
 
     $ bmtools profile -i sample1.methratio.mbw --bed active.bed -o active.profile \
-      --regionextend 2000 --bodyX 1 --matrixX 5 --profilemode 2
+      --regionextend 2000 --bodyX 1 --matrixX 5 --profilemode 3
 
     $ bmtools profile -i sample1.methratio.mbw --bed random.bed -o random.profile \
-      --regionextend 2000 --bodyX 1 --matrixX 5 --profilemode 2
+      --regionextend 2000 --bodyX 1 --matrixX 5 --profilemode 3
 
-    $ bt2profile.py -f active.profile.center.txt \
-        random.profile.center.txt \
+    $ bt2profile.py -f active.profile.center.aver \
+        random.profile.center.aver \
         -l active random \
         --outFileName active_random.output.meth.pdf \
         -s 1 1 -xl up2k center down2k
@@ -72,8 +72,8 @@ The *.TSSprofile.txt *.centerprofile.txt and *.AverMethylevel.txt are calulated 
     $ bmtools profile -i sample1.methratio.mbw --bed H3K4me3.unbdgene.bed -o H3K4me3.unbdgene.profile \
       --regionextend 2000 --bodyX 1 --matrixX 5 --profilemode 0
 
-    $ bt2profile.py -f H3K27me3.bdgene.profile.avarage.across.txt \
-        H3K27me3.unbdgene.profile.across.txt \
+    $ bt2profile.py -f H3K27me3.bdgene.profile.avarage.across.aver \
+        H3K27me3.unbdgene.profile.across.aver \
         -l H3K27me3.bdgene H3K27me3.unbdgene \
         --outFileName H3K27me3.output.meth.pdf \
         -s 1 1 1 -xl up2k TSS TES down2k
@@ -135,7 +135,10 @@ bt2heatmap
 
 .. code:: bash
 
-    $ python bt2heatmap.py -m H3K4me3.bdgene.GENE.cg.txt -l bg \
+    $ bmtools profile -i sample1.methratio.mbw --bed H3K4me3.bdgene.bed -o H3K4me3.bdgene.profile \
+      --regionextend 2000 --bodyX 1 --matrixX 5 --profilemode 0
+    
+    $ python bt2heatmap.py -m H3K4me3.bdgene.profile.cg -l bg \
     -o test0.pdf -z k43 -sl TSS -el TTS
 
 .. image:: ../media/plot-heatmap-0.png
@@ -146,7 +149,13 @@ bt2heatmap
 
 .. code:: bash
 
-    $ python bt2heatmap.py -m H3K4me3.bdgene.TSS.cg.txt H3K4me3.bdgene.TTS.cg.txt \
+    $ bmtools profile -i sample1.methratio.mbw --bed H3K4me3.bdgene.bed -o H3K4me3.bdgene.profile \
+      --regionextend 2000 --bodyX 1 --matrixX 5 --profilemode 1
+    
+    $ bmtools profile -i sample1.methratio.mbw --bed H3K4me3.bdgene.bed -o H3K4me3.bdgene.profile \
+      --regionextend 2000 --bodyX 1 --matrixX 5 --profilemode 2
+
+    $ python bt2heatmap.py -m H3K4me3.bdgene.profile.tss.cg H3K4me3.bdgene.profile.tts.cg \
         -l tss tts -o test.pdf --zMax 0.1 --colorMap vlag --centerlabel center -z bd
 
 .. image:: ../media/plot-heatmap-1.png
@@ -157,8 +166,8 @@ bt2heatmap
 
 .. code:: bash
 
-    $ python bt2heatmap.py -m H3K4me3.bdgene.TSS.cg.txt H3K4me3.bdgene.TTS.cg.txt \
-        H3K4me3.unbdgene.TSS.cg.txt H3K4me3.unbdgene.TTS.cg.txt \
+    $ python bt2heatmap.py -m H3K4me3.bdgene.profile.tss.cg H3K4me3.bdgene.profile.tts.cg \
+        H3K4me3.unbdgene.profile.tss.cg H3K4me3.unbdgene.profile.tts.cg \
         -l test end -o test2.pdf --zMax 0.05 --centerlabel center \
         --plotmatrix 2x2 --colorList white,red -z bd unbd
 
@@ -170,8 +179,11 @@ bt2heatmap
 
 .. code:: bash
 
-    $ python bt2heatmap.py -f H3K4me3.bdgene.body.cg.txt H3K4me3.bdgene.body.cg.txt \
-        H3K4me3.unbdgene.body.cg.txt H3K4me3.unbdgene.body.cg.txt \
+    $ bmtools bodystats --gtf H3K4me3.bdgene.gtf -i ./test.methratio.mbw \
+      -o H3K4me3.bdgene --strand 3 --context 4 --printcoverage 1
+
+    $ python bt2heatmap.py -f H3K4me3.bdgene.bodym.cover.cg H3K4me3.bdgene.bodym.cover.cg \
+        H3K4me3.unbdgene.bodym.cover.cg H3K4me3.unbdgene.bodym.cover.cg \
         -l test end -o test3.pdf --zMax 0.5 --centerlabel center \
         --plotmatrix 2x2 -z bd unbd
 
@@ -183,9 +195,9 @@ bt2heatmap
 
 .. code:: bash
 
-    $ python bt2heatmap.py -m H3K4me3.bdgene.TSS.cg.txt H3K4me3.bdgene.TTS.cg.txt \
-        H3K4me3.bdgene.TSS.chg.txt H3K4me3.bdgene.TTS.chg.txt \
-        H3K4me3.bdgene.TSS.chh.txt H3K4me3.bdgene.TTS.chh.txt \
+    $ python bt2heatmap.py -m H3K4me3.bdgene.profile.tss.cg H3K4me3.bdgene.profile.tts.cg \
+        H3K4me3.bdgene.profile.tss.chg H3K4me3.bdgene.profile.tts.chg \
+        H3K4me3.bdgene.profile.tss.chh H3K4me3.bdgene.profile.tts.chh \
         -l H3K4me3.bdgene-tss H3K4me3.bdgene-tts \
         -o H3K4me3.bdgene.TSS_TTS.heatmap.pdf --plotmatrix 3x2 \
         --centerlabel center -z cg chg chh --zMax 0.3 1 0.01
