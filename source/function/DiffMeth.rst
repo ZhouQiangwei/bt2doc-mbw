@@ -20,7 +20,7 @@ You can get dmc and dmr result with:
 
     $ bmDMR -p mutant.output.dm \
     -1 mutant.methratio.mbw -2 WT.methratio.mbw \
-    -methdiff 0.2 -minstep 100 -mindmc 5 -pval 0.01
+    --methdiff 0.2 --minstep 100 --mindmc 5 --pval 0.01
     
 obtained hyper、hypo dmc/dmr from dmc/dmr results
 
@@ -61,9 +61,7 @@ Usage
 +---------------------+--------------------------------------------------------------------------+
 | --element           | caculate predefinded region, input file with id.                         |
 +---------------------+--------------------------------------------------------------------------+
-| --context           | Context for DM. [CG/CHG/CHH/ALL]                                         |
-+---------------------+--------------------------------------------------------------------------+
-| -L                  | predefinded regions or loci.                                             |
+| --context           | Context for DM. CG/CHG/CHH/C, [C]                                        |
 +---------------------+--------------------------------------------------------------------------+
 | -h|--help                                                                                      |
 +---------------------+--------------------------------------------------------------------------+
@@ -73,14 +71,14 @@ Usage
 
 .. code:: bash
 
-    BatMeth2 bmDMR -p dm.output -1 [sample1.methC.mbw replicates ..] \
+    bmDMR -p dm.output -1 [sample1.methC.mbw replicates ..] \
     -2 [sample2.methC.mbw replicates ..]
 
 2. Pre-definded regions (Gene/TE/UTR/CDS or other regions, not suggest) 
 
 .. code:: bash
 
-    BatMeth2 bmDMR -L -o_dm dm.output -1 [sample1.methC.mbw replicates ..] \
+    bmDMR -L -o_dm dm.output -1 [sample1.methC.mbw replicates ..] \
     -2 [sample2.methC.mbw replicates ..]
 
 
