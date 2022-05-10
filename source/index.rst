@@ -13,6 +13,14 @@ In order to complete the DNA methylation data analysis more conveniently,
 we packaged all the functions to complete an easy-to-use, auto-run package for DNA methylation analysis. 
 During the execution of BatMeth2 Tool, an html report is generated about statistics of the sample.
 
+We privide a binary indexed mbw format in this version, similar to BigWig but 
+with coverage and context information. mbw format can be used for view and calculate 
+DNA methylation level of anny chromsome region quickly. This file also can be used as 
+BigWig file for genome browser visulization. Besides, mbw format file has smaller size 
+than text format. Also, we provide a tool named bmtools for view and process mbw file. 
+And we also provide bmDMR tool instead of batDMR for detect DMC and DMR more faster based on 
+mbw input files. 
+
 **Installation**
 
 * Please download and install the tools (see :doc:`function/install`)
@@ -42,20 +50,18 @@ Contents
    function/DiffMeth
    function/Requirements
    
-While developing deepTools, we continuously strive to create software
+While developing BatMeth2, we continuously strive to create software
 that fulfills the following criteria:
 
--  **efficiently extract reads from BAM files** and perform various
-   computations on them
--  **turn BAM files of aligned reads into bigWig files** using different
-   normalization strategies
--  make use of **multiple processors** (speed!)
+-  raw fastq reads quality control and **efficiently align bisulfite
+   sequencing data**
+-  **calculate DNA methylation level based on sorted BAM file** for single
+   base or chromosome region and genes.
+-  **new methlation mbw format with index** can calculate DNA methylation level
+   quickly.
+-  enable **customized down-stream analyses**, espacially with visulization
 -  generation of **highly customizable images** (change colours, size,
    labels, file format, etc.)
--  enable **customized down-stream analyses**, meaning that every
-   data set created can be stored by the user
--  **modular approach** - compatibility, flexibility, scalability (i.e.
-   we can add more and more modules and make use of established methods)
 
 
 Citation

@@ -13,7 +13,7 @@ The GSL library may need to be installed when the following problems occur durin
 
 You can download here:
 
-* fatal error: gsl/gsl_matrix_double.h : No such file or directory
+* `fatal error: gsl/gsl_matrix_double.h : No such file or directory`_
 
 :download:`gsl-2.4.tar.gz <https://www.dna-asmdb.com/tools/gsl-2.4.tar.gz>`
 
@@ -43,7 +43,7 @@ zlib library
 
 The GSL library may need to be installed when the following problems occur during the installation process.
 
-* unfound zlib.h
+* `unfound zlib.h`_ or `cannot find -lz`_
 
 :download:`zlib-1.2.11.zip <https://www.dna-asmdb.com/tools/zlib-1.2.11.zip>`
 
