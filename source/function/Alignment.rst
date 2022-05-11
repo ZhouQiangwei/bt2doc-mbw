@@ -25,7 +25,7 @@ DNA methylation sequencing paired-end data alignment:
 .. code:: bash
 
     An example usage is:
-        BatMeth2 align -g /data/index/genome/genome.fa -i Read_R1_left.fq.gz -i Read_R2_right.fq.gz\
+        BatMeth2 align -g /data/index/genome/genome.fa -1 Read_R1_left.fq.gz -2 Read_R2_right.fq.gz\
         -o outPrefix -p 10
 
 Parameters

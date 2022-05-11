@@ -5,8 +5,7 @@ Pipeline
 
     * :doc:`Alignment`
     * :doc:`Calmeth` 
-    * :doc:`MethyGff`
-    * :doc:`bt2bigwig`
+    * :doc:`BMtools`
     * :doc:`PlotMeth`
     * :doc:`DiffMeth`
 
@@ -18,11 +17,9 @@ Pipeline
 +=========================+====================================+==================================+========================================================================+
 |:doc:`Alignment`         | Single/Paired-end fastq/gz files   | alignment sam/bam file           | Perform DNA methylation level calculation and SNP/ASM detection        |
 +-------------------------+------------------------------------+----------------------------------+------------------------------------------------------------------------+
-|:doc:`Calmeth`           | BS-seq align sorted sam/bam file   | methratio file (loci/region)     | Perform DNA methylation visulization on chromosome, and diff analysis  |
+|:doc:`Calmeth`           | BS-seq align sorted sam/bam file   | mbw and mr file (loci/region)    | Perform DNA methylation visulization on chromosome, and diff analysis  |
 +-------------------------+------------------------------------+----------------------------------+------------------------------------------------------------------------+
-|:doc:`MethyGff`          | methration file from calmeth       | methlevel file on genes/TEs etc. | DNA methylation profile or heatmap on genes/TEs/peak regions/etc.      |
-+-------------------------+------------------------------------+----------------------------------+------------------------------------------------------------------------+
-|:doc:`bt2bigwig`         | methration file from calmeth       | bigwig files (c/cg/chg/chh)      | Convert DNA methylation file to bigwig format.                         |
+|:doc:`BMtools`           | view and process mbw file          | methlevel file on genes/TEs etc. | DNA methylation profile or heatmap on genes/TEs/peak regions/etc.      |
 +-------------------------+------------------------------------+----------------------------------+------------------------------------------------------------------------+
 |:doc:`PlotMeth`          | methy files from calmeth/methyGff  | methy profile/heatmap/boxplot    | visulization of DNA methylation across samples                         |
 +-------------------------+------------------------------------+----------------------------------+------------------------------------------------------------------------+
@@ -153,8 +150,8 @@ Calmeth paramaters
 |     | default step: 50000(bp)                                                                  |
 +-----+------------------------------------------------------------------------------------------+
 
-MethyGff/Annoation paramaters
-"""""""""""""""""""""""""""""
+BMtools paramaters
+""""""""""""""""""
 
 +---------------------+--------------------------------------------------------------------------+
 | --gtf/--gff/--bed/--bed4/--bed5                                                                |
@@ -174,8 +171,6 @@ MethyGff/Annoation paramaters
 |    | step: 0.025 (2.5%)                                                                        |
 +----+----------------+--------------------------------------------------------------------------+
 | -C                  | <= <INT> coverage. default:1000                                          |
-+---------------------+--------------------------------------------------------------------------+
-| -bl/--bodyLen       | Body length to which all regions will be fit. (default: same as -d)      |
 +---------------------+--------------------------------------------------------------------------+
 
 
