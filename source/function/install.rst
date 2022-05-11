@@ -21,9 +21,9 @@ Install
 -------
 .. code:: bash
 
-    a) git clone https://github.com/ZhouQiangwei/BatMeth2.git
+    a) git clone https://github.com/ZhouQiangwei/batmeth2-mbw.git
     b) Change directory into the top directory of BatMeth2
-	$ cd BatMeth2
+	$ cd batmeth2-mbw
     c) Type 
 	$ ./configure
 	$ make
