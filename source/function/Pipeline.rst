@@ -71,13 +71,13 @@ Usage:  (must run this step first)
 
 .. code:: bash
 
-    $ BatMeth2 build_index genomefile
+    $ BatMeth2 index -g genomefile
 
 2. Build index using for rrbs data
 
 .. code:: bash
 
-    $ BatMeth2 build_index rrbs genomefile 
+    $ BatMeth2 index_rrbs -g genomefile 
 
 Main Alignment paramaters
 """""""""""""""""""""""""
