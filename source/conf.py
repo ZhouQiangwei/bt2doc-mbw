@@ -61,6 +61,9 @@ html_theme = 'sphinx_rtd_theme'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+## double dash -- of paramater will convert to one dash - 
+smartquotes = False
+
 # source_suffix = '.rst'
 from recommonmark.parser import CommonMarkParser
 source_parsers = {

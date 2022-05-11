@@ -43,9 +43,9 @@ Usage
 +=====================+==========================================================================+
 | -p                  | output file prefix                                                       |
 +---------------------+--------------------------------------------------------------------------+
-| -1                  | sample1 methy mbw files, sperate by space.                               |
+| -1                  | sample1 methy mbw files, sperate by comma.                               |
 +---------------------+--------------------------------------------------------------------------+
-| -2                  | sample2 methy mbw files, sperate by space.                               |
+| -2                  | sample2 methy mbw files, sperate by comma.                               |
 +---------------------+--------------------------------------------------------------------------+
 | --mindmc            | min dmc sites in dmr region. [default : 4]                               |
 +---------------------+--------------------------------------------------------------------------+
@@ -71,15 +71,15 @@ Usage
 
 .. code:: bash
 
-    bmDMR -p dm.output -1 [sample1.methC.mbw replicates ..] \
-    -2 [sample2.methC.mbw replicates ..]
+    bmDMR -p dm.output -1 [sample1.methC.mbw,replicates ..] \
+    -2 [sample2.methC.mbw,replicates ..]
 
 2. Pre-definded regions (Gene/TE/UTR/CDS or other regions, not suggest) 
 
 .. code:: bash
 
-    bmDMR -L -o_dm dm.output -1 [sample1.methC.mbw replicates ..] \
-    -2 [sample2.methC.mbw replicates ..]
+    bmDMR -L -o_dm dm.output -1 [sample1.methC.mbw,replicates ..] \
+    -2 [sample2.methC.mbw,replicates ..]
 
 
 Output file

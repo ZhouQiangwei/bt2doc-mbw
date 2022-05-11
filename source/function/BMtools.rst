@@ -32,6 +32,8 @@ Main functions
 +---------------------+--------------------------------------------------------------------------+
 | view                | mbw format to txt meth                                                   |
 +---------------------+--------------------------------------------------------------------------+
+| viewheader          | view header of mbw file                                                  |
++---------------------+--------------------------------------------------------------------------+
 | overlap             | overlap cytosine site with more than two mbw files                       |
 +---------------------+--------------------------------------------------------------------------+
 | regionstats         | calculate DNA methylation level of per region                            |
@@ -67,6 +69,17 @@ You can view and process mbw file with bmtools:
     $ bmtools view -i mutant.methratio.mbw | head
     
 obtained text format methylation results
+
+bmtools viewheader
+------------------
+
+You can view the format of mbw file with bmtools:
+
+.. code:: bash
+
+    $ bmtools viewheader -i mutant.methratio.mbw
+    
+obtained format of methylation results
 
 bmtools overlap
 ---------------
