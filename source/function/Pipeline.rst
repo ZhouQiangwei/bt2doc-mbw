@@ -49,6 +49,15 @@ Or clean reads:
     -g ./batmeth2index/genome.fa \
     -o meth -p 8 --gff ./gene.gff
 
+Or you want calculate profile acorss gene with methyGff:
+
+.. code:: bash
+
+    BatMeth2 pipel --fastp ~/location/to/fastp \
+    -1 Raw_reads_1.fq.gz -2 Raw_read_2.fq.gz \
+    -g ./batmeth2index/genome.fa \
+    -o meth -p 8 --gff ./gene.gff \
+    --mrtext Y --bmtools N
 
 You can always see all available command-line options via --help:
 
@@ -114,7 +123,10 @@ Main Alignment paramaters
 +---------------------+--------------------------------------------------------------------------+
 | -n                  | maximum mismatches allowed due to seq. errors [0-1]                      |
 +---------------------+--------------------------------------------------------------------------+
-    
+| --skipalign         | [Y/N] Skip alignment, must have prefix.sort.bam file in out directory.   |
++---------------------+--------------------------------------------------------------------------+
+
+
 Calmeth paramaters
 """"""""""""""""""      
 
@@ -137,7 +149,12 @@ Calmeth paramaters
 +-----+---------------+--------------------------------------------------------------------------+
 |     | Chromosome using an overlapping sliding window of 100000bp at a step of 50000bp\         | 
 |     | default step: 50000(bp)                                                                  |
-+-----+------------------------------------------------------------------------------------------+
++-----+---------------+--------------------------------------------------------------------------+
+| --mrtxt             | [Y/N] also print txt format beside mbw.                                  |
++-----+---------------+--------------------------------------------------------------------------+
+| --bmtools           | [Y/N] use methyGff (methratio.txt) or bmtools (methratio.mbw) to         |
+|                     | calculate profile, suggest Y.                                            |
++-----+---------------+--------------------------------------------------------------------------+
 
 BMtools paramaters
 """"""""""""""""""
